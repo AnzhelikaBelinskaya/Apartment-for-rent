@@ -20,8 +20,8 @@
         images: [
           '/img/main-2.jpg',
           '/img/apart-1.jpg',
-          '/img/apart-4.jpg',
           '/img/apart-5.jpg',
+          '/img/apart-4.jpg',
           
         ],
         index: null
@@ -36,19 +36,21 @@
  
 <style scoped lang="scss">
 .gallery__container {
-  margin: 50px 0;
+  padding: 40px 0;
+  margin: 10px 0;
   display: flex;
+
 }
   .image {
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
-    border: 1px solid #ebebeb;
+    background-position: center;
+    box-shadow: 0px 8px 7px -1px rgba(255,255,255,1);
     margin: 5px;
     border-radius: 5px;
   
     &:hover {
-      border: 1px solid $trans-blue;
+     box-shadow: 0px 8px 7px -1px $primary-color;
     }
   }
 </style> 

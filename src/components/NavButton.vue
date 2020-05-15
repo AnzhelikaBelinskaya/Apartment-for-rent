@@ -12,14 +12,11 @@ export default {
 .nav-button {
   &__container {
     padding: 4px 8px;
-    font-weight: normal;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-      sans-serif;
     font-size: 20px;
     text-decoration: none;
     padding: 5px 20px;
-    border-left: 1px solid $trans-blue;
-   color: $blue;
+    border-left: 1px solid $lighter-primary-color;
+    color: $font-color;
     cursor: pointer;
   }
 }

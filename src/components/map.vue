@@ -27,8 +27,8 @@ export default {
     coords: [43.619268, 39.716908],
     markerIcon: {
       layout: 'default#imageWithContent',
-      imageHref: 'https://image.flaticon.com/icons/png/512/967/967811.png',
-      imageSize: [43, 43],
+      imageHref: '/img/marker.png',
+      imageSize: [31, 46],
       imageOffset: [0, 0],
       
     }
@@ -40,9 +40,9 @@ export default {
 </script>
 <style lang="scss">
 .map__container {
-    height: 300px;
+    height: 400px;
     width: 500px;
-    border: 1px solid $trans-blue;
+    border: 1px solid white;
     
 }
 

@@ -1,2 +1,10 @@
-$blue: rgb(44, 109, 186);
-$trans-blue:  rgba(44, 109, 186, 0.2);
+$font-color: rgb(85, 55, 10);
+$lighter-font-color: rgba(85, 55, 10, 0.3);
+$primary-color:  rgba(122, 187, 218, 0.2);
+$lighter-primary-color:  rgba(122, 187, 218, 0.15);
+$red: rgb(236, 76, 76);
+
+@mixin flexrow($justify){
+    display: flex;
+    justify-content: $justify;
+}

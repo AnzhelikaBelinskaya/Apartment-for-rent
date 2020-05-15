@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar__container">
     <div class="logo__container">
-      <img src="/img/Logo2.png" />
+      <img src="/img/Logo3.png" />
     </div>
     <NavButton class="no-border" title="Главная" url="#" />
     <NavButton title="Как добраться" url="https://www.mail.ru" />
@@ -23,10 +23,9 @@ export default {
   &__container {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
-    margin-top: 20px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid $trans-blue;
+    align-items: center;
+    margin-top: 10px;
+    border-bottom: 1px solid $primary-color;
   }
 }
 .logo__container {
