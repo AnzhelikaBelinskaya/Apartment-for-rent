@@ -18,6 +18,10 @@ export default {
     border-left: 1px solid $lighter-primary-color;
     color: $font-color;
     cursor: pointer;
+    &:hover {
+      background-color: $hover-font-color;
+      border-radius: 5px;
+    }
   }
 }
 </style>

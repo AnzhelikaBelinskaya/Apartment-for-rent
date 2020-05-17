@@ -1,10 +1,19 @@
-$font-color: rgb(85, 55, 10);
-$lighter-font-color: rgba(85, 55, 10, 0.3);
+$font-color: rgb(87, 56, 10);
+$lighter-font-color: rgba(85, 55, 10, 0.302);
+$hover-font-color:  rgba(117, 81, 26, 0.1);
 $primary-color:  rgba(122, 187, 218, 0.2);
-$lighter-primary-color:  rgba(122, 187, 218, 0.15);
+$lighter-primary-color:  rgba(117, 81, 26, 0.1);
 $red: rgb(236, 76, 76);
+$lighter-red: rgba(236, 76, 76, 0.902);
+$lighter-white: rgba(255, 255, 255, 0.6);
 
 @mixin flexrow($justify){
     display: flex;
     justify-content: $justify;
+}
+
+@mixin flexcol($align) {
+    display: flex;
+    flex-direction: column;
+    align-items: $align;
 }

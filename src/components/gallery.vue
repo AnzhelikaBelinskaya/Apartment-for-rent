@@ -37,7 +37,7 @@
 <style scoped lang="scss">
 .gallery__container {
   padding: 40px 0;
-  margin: 10px 0;
+  margin: 10px 40px;
   display: flex;
 
 }
@@ -50,7 +50,7 @@
     border-radius: 5px;
   
     &:hover {
-     box-shadow: 0px 8px 7px -1px $primary-color;
+     box-shadow: 0px 8px 7px -1px $lighter-primary-color;
     }
   }
 </style> 
