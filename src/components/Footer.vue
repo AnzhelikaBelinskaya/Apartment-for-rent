@@ -1,6 +1,8 @@
 <template>
   <div class="footer__container">
-    <NavBar :footer="true" :isHidden="true" />
+    <NavBar 
+    :isFooter="true" 
+    :isHidden="true" />
     <a class="ad__container"  href="https://www.instagram.com/dimphoto_/">
       <div class="ad__image"></div>
       <img src="/img/icons/instagram.png" class="ad__icon" />Фотограф в Красной Поляне

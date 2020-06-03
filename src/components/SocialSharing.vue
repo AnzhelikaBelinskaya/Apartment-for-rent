@@ -1,10 +1,10 @@
  <template>
   <div class="share__container">
     Поделиться:
-    <div v-for="social in $options.socials" :key="social">
+    <div v-for="social in $options.socials" :key="social.network">
       <ShareNetwork
         class="share__link"
-        url="https://mail.ru"
+        :url="path"
         :network="social.network"
         title="Отличная квартира в Сочи"
         description="Отличный вариант жилья в Сочи"
@@ -17,10 +17,14 @@
 </template>
 
 <script>
-import { mainInfo } from "../data/main-info.data";
+import { content } from "../data/content.data";
 export default {
-  socials: mainInfo.socials,
-  prop: ["url"]
+  socials: content.socials,
+  computed: {
+    path: function() {
+      return window.location.href + this.$route.path
+    }
+  }
 };
 </script>
 

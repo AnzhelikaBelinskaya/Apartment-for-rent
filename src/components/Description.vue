@@ -1,7 +1,7 @@
 <template>
-  <div class="info__container">
-    <div class="info__title" :class="{'info__title-red': isRed}">{{title}}</div>
-    <div class="info__content">{{content}}</div>
+  <div class="description">
+    <div class="description__title" :class="{'description__title-red': isRed}">{{ title }}</div>
+    <div class="description__content">{{content}}</div>
   </div>
 </template>
 
@@ -12,14 +12,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.info {
-  &__container {
-    padding: 1em;
-    line-height: 2em;
-    white-space: pre-wrap;
-    text-align: justify;
-    max-width: 45%;
-  }
+.description {
+  padding: 1em;
+  line-height: 2em;
+  white-space: pre-wrap;
+  text-align: justify;
+  max-width: 45%;
+
   &__title {
     margin: 0 1em 1em 1em;
     font-size: 20px;
