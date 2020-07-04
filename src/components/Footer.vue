@@ -3,9 +3,9 @@
     <NavBar 
     :isFooter="true" 
     :isHidden="true" />
-    <a class="ad__container"  href="https://www.instagram.com/dimphoto_/">
+    <a class="ad__container" target="_blank" href="https://www.instagram.com/dimphoto_/">
       <div class="ad__image"></div>
-      <img src="/img/icons/instagram.png" class="ad__icon" />Фотограф в Красной Поляне
+      <img src="/img/icons/instagram.png" class="ad__icon" />Фотограф в Сочи и Красной Поляне
     </a>
     <SocialSharing />
     <div class="footer__contacts">

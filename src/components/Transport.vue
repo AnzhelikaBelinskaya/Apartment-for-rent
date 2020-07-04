@@ -9,20 +9,21 @@
       >{{tab}}</div>
     </div>
     <div class="transport__description-container">
-      <div class="transport__instructions">{{instructions}}</div>
-      <div class="transport__time">Время в пути: {{time}}</div>
-      <div class="transport__cost">Стоимость: {{cost}}</div>
-      <a class="transport__link"></a>
+      <img class="routes__image" src="/img/road.jpg" alt />
+      <div class="transport__instructions">{{currentTransport.instructions}}</div>
+      <div class="transport__time">Время в пути: {{currentTransport.time}}</div>
+      <div class="transport__cost">Стоимость: {{currentTransport.cost}}</div>
+      <a class="transport__link" target="_blank" :href="currentTransport.link">{{currentTransport.buttonName}}</a>
     </div>
   </div>
 </template>
 
 <script>
-import { content } from "../data/content.data";
+import { transport } from "../data/transport.data";
 export default {
+  transport,
   data: function() {
     return {
-      transport: content.transport,
       currentTab: "Такси",
       currentIndex: 0,
       tabs: ["Такси", "Ласточка", "Автобус", "Каршеринг"]
@@ -35,20 +36,14 @@ export default {
     }
   },
   computed: {
-    instructions() {
-      return this.transport[this.currentIndex].instructions;
-    },
-    time() {
-      return this.transport[this.currentIndex].time;
-    },
-    cost() {
-      return this.transport[this.currentIndex].cost;
+    currentTransport() {
+      return this.$options.transport[this.currentIndex];
     }
   }
 };
 </script>
 
-<style lang='scss'>
+<style scoped lang='scss'>
 .routes {
   padding: 2em;
   background-color: $lighter-white;
@@ -73,19 +68,28 @@ export default {
       background-color: $lighter-font-color;
     }
   }
+    &__image {
+      float: right;
+      width: 30%;
+      height: 400px;
+      border-radius: 2px;
+    }
+  
 }
 .transport {
   &__description-container {
+    position: relative;
     background-color: $lighter-primary-color;
     width: 70%;
+    height:400px ;
     border-radius: 4px;
-    padding: 50px 20px;
+    padding: 30px 30px;
   }
   &__instructions {
     padding: 1em;
     line-height: 2em;
-    white-space: pre-wrap;
-    text-align: justify;
+       text-align: justify;
+    text-indent: 2em;
     max-width: 60%;
   }
   &__time {
@@ -93,21 +97,26 @@ export default {
     color: $lighter-red;
   }
   &__cost {
-     padding: 1em;
+    padding: 1em;
     color: $lighter-red;
   }
   &__link {
-      display: block;
-  width: 200px;
-  height: 70px;
-  background-color: $lighter-red;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  text-align: center;
-  line-height: 70px;
-  margin: 50px auto;
-  font-size: 20px;
+    position: absolute;
+    bottom: 30px;
+    right: 40%;
+    display: block;
+    width: 200px;
+    height: 50px;
+    background-color: $lighter-red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 14px;
+    &:hover {
+      background-color: $red;
+    }
   }
 }
 </style>

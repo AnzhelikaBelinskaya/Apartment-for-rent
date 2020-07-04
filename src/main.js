@@ -13,7 +13,7 @@ let router = new VueRouter({
     routes: [
         {path: '/', name: 'Apart', component: Apart},
         {path: '/sightseeings', name: 'Sightseeings', component: Sightseeings},
-        {path: '/transport', name: 'Transport', component: Transport}
+        {path: '/transport', name: 'Transport', component: Transport},
     ]
 })
 

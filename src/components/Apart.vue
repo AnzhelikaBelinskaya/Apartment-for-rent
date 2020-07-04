@@ -23,6 +23,7 @@
     <a
       class="button__book"
       href="https://www.airbnb.ru/rooms/40915648?s=67&sharer_id=266461835&unique_share_id=c3a0e65f-921c-4d55-a16d-80b70684cdc2"
+      target="_blank"
     >Бронировать</a>
   </div>
 </template>
@@ -30,21 +31,24 @@
 <script>
 import yandexMap from "./Map.vue";
 import Description from "./Description.vue";
-import { content } from "../data/content.data";
+import { apart } from "../data/apart.data";
+import { pros } from "../data/pros.data";
+import { icons } from "../data/icons.data";
 import Gallery from "./Gallery.vue";
 export default {
-  description: content.description,
-  pros: content.pros,
-  icons: content.icons,
+  apart,
+  pros,
+  icons,
+  description: apart.description,
   components: {
     yandexMap,
     Gallery,
     Description
-    }
+  }
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .description__container {
   margin: 10px 40px;
   @include flexrow(space-around);

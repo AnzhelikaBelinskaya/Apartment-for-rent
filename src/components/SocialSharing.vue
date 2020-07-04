@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import { content } from "../data/content.data";
+import { socials } from "../data/socials.data";
 export default {
-  socials: content.socials,
+  socials,
   computed: {
     path: function() {
-      return window.location.href + this.$route.path
+      return window.location.href
     }
   }
 };

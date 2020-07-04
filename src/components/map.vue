@@ -9,7 +9,7 @@
         :coords="center"
         :zoom="zoom"
         ymap-class="map__container" >
-        <ymap-marker :coords="coords" :icon="markerIcon"></ymap-marker>
+        <ymap-marker :coords="coords" :icon="markerIcon" markerId=1></ymap-marker>
 </yandex-map>
 </div>
 </template>
@@ -25,7 +25,7 @@ export default {
     center: [43.619479, 39.718719],
     zoom: 15,
     coords: [43.619268, 39.716908],
-    markerIcon: {
+      markerIcon: {
       layout: 'default#imageWithContent',
       imageHref: '/img/marker.png',
       imageSize: [31, 46],
