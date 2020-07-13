@@ -5,7 +5,7 @@
     </div>
     <router-link :to="{name:'Apart'}" class="nav-bar__button">Главная</router-link>
    <router-link :to="{name:'Transport'}" class="nav-bar__button">Как добраться</router-link>
-    <router-link :to="{name:'Sightseeings'}" class="nav-bar__button">Что посетить</router-link>
+    <router-link :to="{name:'Attractions'}" class="nav-bar__button">Что посетить</router-link>
   </div>
 </template>
 

@@ -3,7 +3,7 @@
     <Gallery />
     <div class="description__container">
       <Description title="Добро пожаловать в Сочи!" :content="$options.description" />
-      <yandexMap />
+      <yandexMap :component="$options.apart" />
     </div>
     <div class="pros__container">
       <Description
@@ -29,12 +29,12 @@
 </template>
 
 <script>
-import yandexMap from "./Map.vue";
+import yandexMap from "./Map";
 import Description from "./Description.vue";
 import { apart } from "../data/apart.data";
 import { pros } from "../data/pros.data";
 import { icons } from "../data/icons.data";
-import Gallery from "./Gallery.vue";
+import Gallery from "./Gallery";
 export default {
   apart,
   pros,
