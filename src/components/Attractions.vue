@@ -1,24 +1,32 @@
 <template>
   <div class="attractions">
     <div class="attractions__header">Что посетить?</div>
-    <select type="select" class="attractions__select">
-      <option value class="attractions__option">Горы</option>
-      <option value class="attractions__option">Парки</option>
-      <option value class="attractions__option">Рестораны</option>
+    <select
+      type="select"
+      class="attractions__select"
+      @change="switchType($event)"
+      v-model="selectedType"
+    >
+      <option value="Mountains" class="attractions__option">Горы</option>
+      <option value="Parks" class="attractions__option">Парки</option>
+      <option value="Restaurants" class="attractions__option">Рестораны</option>
     </select>
     <div class="attractions__container">
       <div class="attractions__item-container">
         <AttractionItem
-          class="attractions__item"
-          v-for="(place, index) in places"
+          v-for="(card, index) in cards"
           :key="index"
-          :title="place.header"
-          :content="place.body"
-          :type="place.footer"
-          :address="place.address"
+          :title="card.header"
+          :content="card.body"
+          :type="card.footer"
+          :address="card.address"
         />
       </div>
-      <yandexMap class="attractions__map-container" :component="$options.attractions" />
+      <yandexMap
+        class="attractions__map-container"
+        :component="$options.attractions"
+        :places="places"
+      />
     </div>
   </div>
 </template>
@@ -33,9 +41,23 @@ export default {
     AttractionItem,
     yandexMap
   },
+  data: function() {
+    return { selectedType: "Parks" };
+  },
   computed: {
     places: function() {
-      return attractions.places.map(item => item.balloon);
+      return attractions.places.filter(
+        item => item.balloon.footer === this.selectedType
+      );
+    },
+    cards: function() {
+      return this.places.map(item => item.balloon);
+    }
+  },
+
+  methods: {
+    switchType: function(event) {
+      this.selectedType = event.target.value;
     }
   }
 };
@@ -48,9 +70,20 @@ export default {
 }
 .attractions__container {
   @include flexrow(space-between);
+  height: 30vw;
 }
 .attractions__item-container {
-  @include flexrow(space-between);
-  flex-wrap: wrap;
+  @include flexcol(flex-start);
+  flex-wrap: no-wrap;
+  min-width: 55%;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
 }
 </style>

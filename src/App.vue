@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <NavBar />
-    <router-view></router-view>
+    <router-view class="main__container"></router-view>
     <Footer />
   </div>
 </template>
@@ -28,4 +28,9 @@ export default {
   font-family: "Montserrat", sans-serif;
   color: $font-color;
 }
+.main__container {
+  margin: 10px 40px;
+  background-color: $lighter-primary-color;
+}
+
 </style>

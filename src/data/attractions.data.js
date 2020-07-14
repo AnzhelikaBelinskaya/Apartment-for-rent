@@ -8,7 +8,23 @@ export const attractions = {
     balloon: {
       header: 'Dendrarium',
       body: 'Interesting place',
-      footer: 'To-see',
+      footer: 'Mountains',
+      address: "Орджоникидзе"
+    },
+    coords: [43.573487, 39.773298],
+    markerIcon: {
+      layout: 'default#imageWithContent',
+      imageHref: '/img/marker.png',
+      imageSize: [31, 46],
+      imageOffset: [-18, -46],
+
+    }
+  },
+  {
+    balloon: {
+      header: 'Dendrarium',
+      body: 'Interesting place',
+      footer: 'Mountains',
       address: "Орджоникидзе"
     },
     coords: [43.573487, 39.773298],
@@ -24,7 +40,39 @@ export const attractions = {
     balloon: {
       header: 'Zimnii Theater',
       body: 'Interesting place',
-      footer: 'To-see',
+      footer: 'Parks',
+      address: "Орджоникидзе"
+    },
+    coords: [43.569370, 39.757762],
+    markerIcon: {
+      layout: 'default#imageWithContent',
+      imageHref: '/img/marker.png',
+      imageSize: [31, 46],
+      imageOffset: [-18, -46],
+
+    }
+  },
+  {
+    balloon: {
+      header: 'Zimnii Theater',
+      body: 'Interesting place',
+      footer: 'Parks',
+      address: "Орджоникидзе"
+    },
+    coords: [43.569370, 39.757762],
+    markerIcon: {
+      layout: 'default#imageWithContent',
+      imageHref: '/img/marker.png',
+      imageSize: [31, 46],
+      imageOffset: [-18, -46],
+
+    }
+  },
+  {
+    balloon: {
+      header: 'Zimnii Theater',
+      body: 'Interesting place',
+      footer: 'Parks',
       address: "Орджоникидзе"
     },
     coords: [43.569370, 39.757762],
@@ -40,7 +88,7 @@ export const attractions = {
     balloon: {
       header: 'Roscha',
       body: 'Interesting place',
-      footer: 'To-eat',
+      footer: 'Restaurants',
       address: "Орджоникидзе"
     },
     coords: [43.569370, 39.903611],

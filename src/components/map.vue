@@ -1,5 +1,5 @@
 <template>
-  <div class="map__container" :component="component">
+  <div class="map__container" :component="component" :places="places">
     <yandex-map
       :settings="{
         apiKey: '10588863-f27e-4023-9c46-f348f5ac6351',
@@ -28,22 +28,17 @@
 import { yandexMap, ymapMarker } from "vue-yandex-maps";
 
 export default {
-  props: ["component"],
+  props: ["component", "places"],
   components: { yandexMap, ymapMarker },
   data: function() {
     return this.component.mapSettings;
-  },
-  computed: {
-    places: function() {
-      return this.component.places;
-    }
   }
 };
 </script>
 <style lang="scss">
 .map__container {
-  height: 400px;
-  width: 500px;
+  height: 35em;
+  width: 35em;
   border: 1px solid white;
 }
 </style>
