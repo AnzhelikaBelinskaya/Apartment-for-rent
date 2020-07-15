@@ -10,11 +10,14 @@
       <option value="Mountains" class="attractions__option">Горы</option>
       <option value="Parks" class="attractions__option">Парки</option>
       <option value="Restaurants" class="attractions__option">Рестораны</option>
+      <option value="Waterfalls" class="attraction__option">Водопады</option>
+      <option value="Activities" class="attraction__option">Развлечения</option>
     </select>
     <div class="attractions__container">
       <div class="attractions__item-container">
         <AttractionItem
           v-for="(card, index) in cards"
+          :imageSrc="card.imageSrc"
           :key="index"
           :title="card.header"
           :content="card.body"
@@ -24,6 +27,7 @@
       </div>
       <yandexMap
         class="attractions__map-container"
+        :markerIcon="markerIcon"
         :component="$options.attractions"
         :places="places"
       />
@@ -52,6 +56,9 @@ export default {
     },
     cards: function() {
       return this.places.map(item => item.balloon);
+    },
+    markerIcon: function() {
+      return attractions.icons.filter(icon => icon.type === this.selectedType)[0];
     }
   },
 
@@ -70,7 +77,7 @@ export default {
 }
 .attractions__container {
   @include flexrow(space-between);
-  height: 30vw;
+  height: 35vw;
 }
 .attractions__item-container {
   @include flexcol(flex-start);

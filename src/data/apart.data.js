@@ -7,7 +7,13 @@ export const apart = {
     center: [43.619479, 39.718719],
     zoom: 15,
   },
+  markerIcon: {
+    layout: 'default#imageWithContent',
+    imageHref: '/img/marker.png',
+    imageSize: [31, 46],
+    imageOffset: [-18, -46],
 
+  },
   places: [{
     balloon: {
       header: 'Klubnichnaya 1/19',
@@ -15,13 +21,7 @@ export const apart = {
       footer: 'To-sleep',
     },
     coords: [43.619268, 39.716908],
-    markerIcon: {
-      layout: 'default#imageWithContent',
-      imageHref: '/img/marker.png',
-      imageSize: [31, 46],
-      imageOffset: [-18, -46],
 
-    }
   }
   ]
 }

@@ -2,7 +2,7 @@
   <div class="gallery__container">
     <gallery :images="images" :index="index" @close="index = null"></gallery>
     <div
-      class="image"
+      class="gallery__image"
       v-for="(image, imageIndex) in images"
       :key="imageIndex"
       @click="index = imageIndex"
@@ -41,7 +41,7 @@
   display: flex;
 
 }
-  .image {
+  .gallery__image {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

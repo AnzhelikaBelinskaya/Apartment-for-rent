@@ -3,7 +3,7 @@
     <Gallery />
     <div class="description__container">
       <Description title="Добро пожаловать в Сочи!" :content="$options.description" />
-      <yandexMap :component="$options.apart" :places="$options.apart.places"/>
+      <yandexMap :component="$options.apart" :places="$options.apart.places" :markerIcon="$options.apart.markerIcon"/>
     </div>
     <div class="pros__container">
       <Description
@@ -51,7 +51,7 @@ export default {
 <style scoped lang="scss">
 .description__container {
   @include flexrow(space-around);
-  padding: 5em 2em;
+  padding: 2vw 2vw;
 }
 .pros__container {
   @include flexrow(space-between);
