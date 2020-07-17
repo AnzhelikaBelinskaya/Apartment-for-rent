@@ -5,26 +5,38 @@
         <img src="/img/Logo3.png" />
       </router-link>
     </div>
-    <router-link :to="{name:'Apart'}" class="nav-bar__button">Главная</router-link>
-    <router-link :to="{name:'Transport'}" class="nav-bar__button">Как добраться</router-link>
-    <router-link :to="{name:'Attractions'}" class="nav-bar__button">Что посетить</router-link>
-    <div class="lang-switcher__container">
-      <img src="/img/icons/ru.png" class="lang-switcher__button" />
-      <img src="/img/icons/eng.png" class="lang-switcher__button" />
+    <router-link :to="{name:'Apart'}" class="nav-bar__button">{{currentText.home}}</router-link>
+    <router-link :to="{name:'Transport'}" class="nav-bar__button">{{currentText.transport}}</router-link>
+    <router-link :to="{name:'Attractions'}" class="nav-bar__button">{{currentText.attractions}}</router-link>
+    <div class="lang-switcher__container" :class="{'lang-switcher__container--hidden':isHidden}">
+      <img src="/img/icons/ru.png" class="lang-switcher__button" @click="switchLang('ru')" />
+      <img src="/img/icons/eng.png" class="lang-switcher__button" @click="switchLang('eng')" />
     </div>
-    <div class="theme-switcher__container">
+    <div class="theme-switcher__container" :class="{'theme-switcher__container--hidden':isHidden}">
       <div class="theme-switcher__toggler"></div>
       <div class="theme-switcher__modes">
-        <p class="theme-switcher__mode theme-switcher__mode--light">Light</p>
-        <p class="theme-switcher__mode theme-switcher__mode--dark">Dark</p>
+        <p class="theme-switcher__mode theme-switcher__mode--light">{{currentText.lightTheme}}</p>
+        <p class="theme-switcher__mode theme-switcher__mode--dark">{{currentText.darkTheme}}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { navTitles } from "../data/navBarText.data";
 export default {
-  props: ["isFooter", "isHidden"]
+  navTitles,
+  props: ["isFooter", "isHidden", "lang"],
+  computed: {
+    currentText() {
+      return navTitles[this.lang];
+    }
+  },
+  methods: {
+    switchLang: function(lang) {
+      this.$emit("switchLang", lang);
+    }
+  }
 };
 </script>
 
@@ -80,6 +92,9 @@ export default {
     border: 1px solid $bg-red;
   }
 }
+.lang-switcher__container--hidden {
+  display: none;
+}
 
 .theme-switcher__container {
   display: inline-block;
@@ -89,6 +104,10 @@ export default {
   width: 7vw;
   height: 2vw;
   margin: 0 0.5vw;
+}
+
+.theme-switcher__container--hidden {
+  display: none;
 }
 
 .theme-switcher__modes {

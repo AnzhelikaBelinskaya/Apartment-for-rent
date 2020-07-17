@@ -4,7 +4,7 @@
       <div
         v-for="(tab, index) in tabs"
         :key="index"
-        :class="['routes__button', {'routes__button-active': tab===currentTab}]"
+        :class="['routes__button', {'routes__button-active': index==currentIndex}]"
         @click="onClick(index, tab)"
       >{{tab}}</div>
     </div>
@@ -13,7 +13,11 @@
       <div class="transport__instructions">{{currentTransport.instructions}}</div>
       <div class="transport__time">Время в пути: {{currentTransport.time}}</div>
       <div class="transport__cost">Стоимость: {{currentTransport.cost}}</div>
-      <a class="transport__link" target="_blank" :href="currentTransport.link">{{currentTransport.buttonName}}</a>
+      <a
+        class="transport__link"
+        target="_blank"
+        :href="currentTransport.link"
+      >{{currentTransport.buttonName}}</a>
     </div>
   </div>
 </template>
@@ -22,11 +26,11 @@
 import { transport } from "../data/transport.data";
 export default {
   transport,
+  props: ["lang"],
   data: function() {
     return {
       currentTab: "Такси",
-      currentIndex: 0,
-      tabs: ["Такси", "Ласточка", "Автобус", "Каршеринг"]
+      currentIndex: 0
     };
   },
   methods: {
@@ -36,8 +40,14 @@ export default {
     }
   },
   computed: {
+    tabs() {
+      return this.currentDescription.tabs;
+    },
     currentTransport() {
-      return this.$options.transport[this.currentIndex];
+      return this.currentDescription.description[this.currentIndex];
+    },
+    currentDescription() {
+      return transport[this.lang];
     }
   }
 };
@@ -68,27 +78,26 @@ export default {
       background-color: $lighter-font-color;
     }
   }
-    &__image {
-      float: right;
-      width: 30%;
-      height: 400px;
-      border-radius: 2px;
-    }
-  
+  &__image {
+    float: right;
+    width: 30%;
+    height: 400px;
+    border-radius: 2px;
+  }
 }
 .transport {
   &__description-container {
     position: relative;
     background-color: $lighter-primary-color;
     width: 70%;
-    height:400px ;
+    height: 400px;
     border-radius: 4px;
     padding: 30px 30px;
   }
   &__instructions {
     padding: 1em;
     line-height: 2em;
-       text-align: justify;
+    text-align: justify;
     text-indent: 2em;
     max-width: 60%;
   }

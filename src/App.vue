@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
-    <NavBar />
-    <router-view class="main__container"></router-view>
-    <Footer />
+  <div id="app"  >
+    <NavBar @switchLang="onSwitchLang" :lang="lang"/>
+    <router-view class="main__container" :lang="lang"></router-view>
+    <Footer :lang="lang"/>
   </div>
 </template>
 
@@ -16,6 +16,17 @@ export default {
   components: {
     NavBar,
     Footer
+  },
+
+  data: function() {
+    return {
+      lang: "ru"
+    }
+  },
+  methods: {
+    onSwitchLang(data) {
+      return this.lang = data;
+    }
   }
 };
 </script>
@@ -32,5 +43,4 @@ export default {
   margin: 10px 40px;
   background-color: $lighter-primary-color;
 }
-
 </style>

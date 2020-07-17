@@ -1,6 +1,7 @@
 <template>
   <div class="footer__container">
-    <NavBar 
+    <NavBar
+    :lang="lang"
     :isFooter="true" 
     :isHidden="true" />
     <a class="ad__container" target="_blank" href="https://www.instagram.com/dimphoto_/">
@@ -19,7 +20,8 @@ export default {
   components: {
     NavBar,
     SocialSharing
-  }
+  },
+  props: ["lang"]
 };
 import NavBar from "./NavBar";
 import SocialSharing from "./SocialSharing";
