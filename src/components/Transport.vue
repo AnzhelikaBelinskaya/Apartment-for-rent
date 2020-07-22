@@ -11,8 +11,8 @@
     <div class="transport__description-container">
       <img class="routes__image" src="/img/road.jpg" alt />
       <div class="transport__instructions">{{currentTransport.instructions}}</div>
-      <div class="transport__time">Время в пути: {{currentTransport.time}}</div>
-      <div class="transport__cost">Стоимость: {{currentTransport.cost}}</div>
+      <div class="transport__time">{{textData.titles.time}}:    {{currentTransport.time}}</div>
+      <div class="transport__cost">{{textData.titles.price}}:   {{currentTransport.cost}}</div>
       <a
         class="transport__link"
         target="_blank"
@@ -41,13 +41,13 @@ export default {
   },
   computed: {
     tabs() {
-      return this.currentDescription.tabs;
+      return this.textData.tabs;
     },
     currentTransport() {
-      return this.currentDescription.description[this.currentIndex];
+      return this.textData.description[this.currentIndex];
     },
-    currentDescription() {
-      return transport[this.lang];
+    textData: function() {
+      return transport[this.$store.state.lang];
     }
   }
 };

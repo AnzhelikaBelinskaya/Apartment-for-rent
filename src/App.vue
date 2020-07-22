@@ -1,8 +1,8 @@
 <template>
   <div id="app"  >
-    <NavBar @switchLang="onSwitchLang" :lang="lang"/>
-    <router-view class="main__container" :lang="lang"></router-view>
-    <Footer :lang="lang"/>
+    <NavBar :isFooter='false' :isHidden='false'/>
+    <router-view class="main__container" ></router-view>
+    <Footer/>
   </div>
 </template>
 
@@ -18,17 +18,7 @@ export default {
     Footer
   },
 
-  data: function() {
-    return {
-      lang: "ru"
-    }
-  },
-  methods: {
-    onSwitchLang(data) {
-      return this.lang = data;
-    }
-  }
-};
+ };
 </script>
 
 

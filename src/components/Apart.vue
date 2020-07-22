@@ -1,20 +1,24 @@
 <template>
-  <div>
+  <div class="apart__container">
     <Gallery />
     <div class="description__container">
-      <Description title="Добро пожаловать в Сочи!" :content="$options.description" />
-      <yandexMap :component="$options.apart" :places="$options.apart.places" :markerIcon="$options.apart.markerIcon"/>
+      <Description :title="titlesText.welcome" :content="descriptionText.description" />
+      <yandexMap
+        :component="$options.apart"
+        :places="$options.apart.places"
+        :markerIcon="$options.apart.markerIcon"
+      />
     </div>
     <div class="pros__container">
       <Description
-        v-for="pro in $options.pros"
+        v-for="pro in prosText"
         :key="pro.title"
         :isRed="true"
         :title="pro.title"
         :content="pro.content"
       />
     </div>
-    <div class="icon__title">Удобства</div>
+    <div class="icon__title">{{titlesText.facilities}}</div>
     <div class="icon__container">
       <div class="icon-block" v-for="icon in $options.icons" :key="icon.id">
         <img :src="icon.url" :alt="icon.alt" :title="icon.alt" />
@@ -24,7 +28,7 @@
       class="button__book"
       href="https://www.airbnb.ru/rooms/40915648?s=67&sharer_id=266461835&unique_share_id=c3a0e65f-921c-4d55-a16d-80b70684cdc2"
       target="_blank"
-    >Бронировать</a>
+    >{{titlesText.book}}</a>
   </div>
 </template>
 
@@ -44,11 +48,41 @@ export default {
     yandexMap,
     Gallery,
     Description
+  },
+  data: function() {
+    return {
+      titles: {
+        "ru-RU": {
+          welcome: "Добро пожаловать в Сочи!",
+          facilities: "Удобства",
+          book: "Бронировать"
+        },
+        "en-US": {
+          welcome: "Welcome to Sochi!",
+          facilities: "Facilities",
+          book: "Book now!"
+        }
+      }
+    };
+  },
+  computed: {
+    descriptionText: function() {
+      return apart[this.$store.state.lang];
+    },
+    titlesText: function() {
+      return this.titles[this.$store.state.lang];
+    },
+    prosText: function() {
+      return pros[this.$store.state.lang];
+    }
   }
 };
 </script>
 
 <style scoped lang="scss">
+.apart__container {
+  padding-bottom: 2vw;
+}
 .description__container {
   @include flexrow(space-around);
   padding: 2vw 2vw;

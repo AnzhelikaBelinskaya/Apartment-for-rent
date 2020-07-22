@@ -5,18 +5,18 @@
         <img src="/img/Logo3.png" />
       </router-link>
     </div>
-    <router-link :to="{name:'Apart'}" class="nav-bar__button">{{currentText.home}}</router-link>
-    <router-link :to="{name:'Transport'}" class="nav-bar__button">{{currentText.transport}}</router-link>
-    <router-link :to="{name:'Attractions'}" class="nav-bar__button">{{currentText.attractions}}</router-link>
+    <router-link :to="{name:'Apart'}" class="nav-bar__button">{{textData.home}}</router-link>
+    <router-link :to="{name:'Transport'}" class="nav-bar__button">{{textData.transport}}</router-link>
+    <router-link :to="{name:'Attractions'}" class="nav-bar__button">{{textData.attractions}}</router-link>
     <div class="lang-switcher__container" :class="{'lang-switcher__container--hidden':isHidden}">
-      <img src="/img/icons/ru.png" class="lang-switcher__button" @click="switchLang('ru')" />
-      <img src="/img/icons/eng.png" class="lang-switcher__button" @click="switchLang('eng')" />
+      <img src="/img/icons/ru.png" class="lang-switcher__button" @click="switchToRu" />
+      <img src="/img/icons/eng.png" class="lang-switcher__button" @click="switchToEng" />
     </div>
     <div class="theme-switcher__container" :class="{'theme-switcher__container--hidden':isHidden}">
       <div class="theme-switcher__toggler"></div>
       <div class="theme-switcher__modes">
-        <p class="theme-switcher__mode theme-switcher__mode--light">{{currentText.lightTheme}}</p>
-        <p class="theme-switcher__mode theme-switcher__mode--dark">{{currentText.darkTheme}}</p>
+        <p class="theme-switcher__mode theme-switcher__mode--light">{{textData.lightTheme}}</p>
+        <p class="theme-switcher__mode theme-switcher__mode--dark">{{textData.darkTheme}}</p>
       </div>
     </div>
   </div>
@@ -25,16 +25,18 @@
 <script>
 import { navTitles } from "../data/navBarText.data";
 export default {
-  navTitles,
-  props: ["isFooter", "isHidden", "lang"],
+  props: ["isFooter", "isHidden"],
   computed: {
-    currentText() {
-      return navTitles[this.lang];
+    textData: function() {
+      return navTitles[this.$store.state.lang];
     }
   },
   methods: {
-    switchLang: function(lang) {
-      this.$emit("switchLang", lang);
+    switchToRu: function() {
+      this.$store.commit("switchToRu");
+    },
+    switchToEng: function() {
+      this.$store.commit("switchToEng");
     }
   }
 };

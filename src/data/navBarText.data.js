@@ -1,12 +1,12 @@
 export const navTitles = {
-    ru: {
+    'ru-RU': {
         home: 'Главная',
         transport: 'Как добраться?',
         attractions: 'Что посетить?',
         lightTheme: 'Светлая',
         darkTheme: 'Темная'
     },
-    eng: {
+    'en-US': {
         home: 'Home',
         transport: 'Transport',
         attractions: 'Attractions',

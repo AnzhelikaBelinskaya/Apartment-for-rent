@@ -1,13 +1,13 @@
  <template>
   <div class="share__container">
-    Поделиться:
+    {{titlesText.share}}:
     <div v-for="social in $options.socials" :key="social.network">
       <ShareNetwork
         class="share__link"
         :url="path"
         :network="social.network"
-        title="Отличная квартира в Сочи"
-        description="Отличный вариант жилья в Сочи"
+        :title="titlesText.shareTitle"
+        :description="titlesText.shareText"
       >
         <img class="social__icon" :src="social.img" />
         {{social.tag}}
@@ -20,7 +20,26 @@
 import { socials } from "../data/socials.data";
 export default {
   socials,
-  computed: {
+  data: function() {
+    return {
+      titles: {
+        'ru-RU': {
+          share: 'Поделиться',
+          shareTitle: "Отличная квартира в Сочи",
+          shareText: "Отличный вариант жилья в Сочи"
+        },
+        'en-US': {
+           share: 'Share',
+            shareTitle: "Nice apart in Sochi",
+          shareText: "Look at this apart"
+        }
+      }
+    }
+  },
+  computed:  {
+    titlesText: function() {
+      return this.titles[this.$store.state.lang];
+    },
     path: function() {
       return window.location.href
     }

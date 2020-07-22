@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Vuex from 'vuex'
 import VueSocialSharing from 'vue-social-sharing'
 import VueRouter from 'vue-router'
 import Apart from './components/Apart'
@@ -8,6 +9,21 @@ import Transport from './components/Transport'
  
 Vue.use(VueSocialSharing);
 Vue.use(VueRouter);
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+  state: {
+    lang: 'ru-RU',
+  },
+  mutations: {
+    switchToRu (state) {
+      state.lang = 'ru-RU';
+    },
+    switchToEng (state) {
+      state.lang = 'en-US';
+  }
+}
+});
 
 let router = new VueRouter({
     routes: [
@@ -21,5 +37,6 @@ Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store: store
 }).$mount('#app');

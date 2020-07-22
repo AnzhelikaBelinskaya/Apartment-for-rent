@@ -3,7 +3,7 @@
     <yandex-map
       :settings="{
         apiKey: '10588863-f27e-4023-9c46-f348f5ac6351',
-        lang: 'ru_RU',
+        lang: this.$store.state.lang,
         coordorder: 'latlong',
         version: '2.1'
         }"

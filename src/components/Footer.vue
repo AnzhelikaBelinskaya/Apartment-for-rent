@@ -1,17 +1,13 @@
 <template>
   <div class="footer__container">
-    <NavBar
-    :lang="lang"
-    :isFooter="true" 
-    :isHidden="true" />
+    <NavBar :lang="lang" :isFooter="true" :isHidden="true" />
     <a class="ad__container" target="_blank" href="https://www.instagram.com/dimphoto_/">
       <div class="ad__image"></div>
-      <img src="/img/icons/instagram.png" class="ad__icon" />Фотограф в Сочи и Красной Поляне
+      <img src="/img/icons/instagram.png" class="ad__icon" />
+      {{titlesText.ad}}
     </a>
     <SocialSharing />
-    <div class="footer__contacts">
-      
-    </div>
+    <div class="footer__contacts"></div>
   </div>
 </template>
 
@@ -21,7 +17,24 @@ export default {
     NavBar,
     SocialSharing
   },
-  props: ["lang"]
+  props: ["lang"],
+  data: function() {
+    return {
+      titles: {
+        "ru-RU": {
+          ad: "Фотограф в Сочи и Красной Поляне"
+        },
+        "en-US": {
+          ad: "Photographer in Sochi & Krasnaya Polyana"
+        }
+      }
+    };
+  },
+  computed: {
+    titlesText: function() {
+      return this.titles[this.$store.state.lang];
+    }
+  }
 };
 import NavBar from "./NavBar";
 import SocialSharing from "./SocialSharing";
@@ -35,15 +48,14 @@ import SocialSharing from "./SocialSharing";
   background-color: $lighter-primary-color;
 }
 .ad__image {
- 
   background: url("/img/collage2.png") no-repeat;
   background-size: contain;
   width: 462px;
   height: 100px;
- }
+}
 
 .ad__container {
-   display: block;
+  display: block;
   background-color: $lighter-primary-color;
   margin-top: 30px;
   padding: 15px;
