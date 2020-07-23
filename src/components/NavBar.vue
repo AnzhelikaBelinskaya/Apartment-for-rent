@@ -5,39 +5,32 @@
         <img src="/img/Logo3.png" />
       </router-link>
     </div>
-    <router-link :to="{name:'Apart'}" class="nav-bar__button">{{textData.home}}</router-link>
-    <router-link :to="{name:'Transport'}" class="nav-bar__button">{{textData.transport}}</router-link>
-    <router-link :to="{name:'Attractions'}" class="nav-bar__button">{{textData.attractions}}</router-link>
+    <router-link :to="{name:'Apart'}" class="nav-bar__button">{{$options.navTitles.home | translate}}</router-link>
+    <router-link :to="{name:'Transport'}" class="nav-bar__button">{{$options.navTitles.transport | translate}}</router-link>
+    <router-link :to="{name:'Attractions'}" class="nav-bar__button">{{$options.navTitles.attractions | translate}}</router-link>
     <div class="lang-switcher__container" :class="{'lang-switcher__container--hidden':isHidden}">
-      <img src="/img/icons/ru.png" class="lang-switcher__button" @click="switchToRu" />
-      <img src="/img/icons/eng.png" class="lang-switcher__button" @click="switchToEng" />
+      <img src="/img/icons/ru.png" class="lang-switcher__button" @click="setLang('ru-RU')" />
+      <img src="/img/icons/eng.png" class="lang-switcher__button" @click="setLang('en-US')" />
     </div>
     <div class="theme-switcher__container" :class="{'theme-switcher__container--hidden':isHidden}">
       <div class="theme-switcher__toggler"></div>
       <div class="theme-switcher__modes">
-        <p class="theme-switcher__mode theme-switcher__mode--light">{{textData.lightTheme}}</p>
-        <p class="theme-switcher__mode theme-switcher__mode--dark">{{textData.darkTheme}}</p>
+        <p class="theme-switcher__mode theme-switcher__mode--light">{{$options.navTitles.lightTheme | translate}}</p>
+        <p class="theme-switcher__mode theme-switcher__mode--dark">{{$options.navTitles.darkTheme | translate}}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { navTitles } from "../data/navBarText.data";
+import { titles } from "../data/titles.data";
 export default {
   props: ["isFooter", "isHidden"],
-  computed: {
-    textData: function() {
-      return navTitles[this.$store.state.lang];
-    }
-  },
+  navTitles: titles.nav,
   methods: {
-    switchToRu: function() {
-      this.$store.commit("switchToRu");
+    setLang: function(lang) {
+      this.$store.commit("setLang", lang);
     },
-    switchToEng: function() {
-      this.$store.commit("switchToEng");
-    }
   }
 };
 </script>

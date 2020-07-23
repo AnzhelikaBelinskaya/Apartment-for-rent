@@ -4,56 +4,67 @@
       <div
         v-for="(tab, index) in tabs"
         :key="index"
-        :class="['routes__button', {'routes__button-active': index==currentIndex}]"
+        :class="[
+          'routes__button',
+          { 'routes__button-active': index == currentIndex },
+        ]"
         @click="onClick(index, tab)"
-      >{{tab}}</div>
+      >
+        {{ tab }}
+      </div>
     </div>
     <div class="transport__description-container">
       <img class="routes__image" src="/img/road.jpg" alt />
-      <div class="transport__instructions">{{currentTransport.instructions}}</div>
-      <div class="transport__time">{{textData.titles.time}}:    {{currentTransport.time}}</div>
-      <div class="transport__cost">{{textData.titles.price}}:   {{currentTransport.cost}}</div>
+      <div class="transport__instructions">
+        {{ currentTransport.instructions }}
+      </div>
+      <div class="transport__time">
+        {{ textData.titles.time }}: {{ currentTransport.time }}
+      </div>
+      <div class="transport__cost">
+        {{ textData.titles.price }}: {{ currentTransport.cost }}
+      </div>
       <a
         class="transport__link"
         target="_blank"
         :href="currentTransport.link"
-      >{{currentTransport.buttonName}}</a>
+        >{{ currentTransport.buttonName }}</a
+      >
     </div>
   </div>
 </template>
 
 <script>
-import { transport } from "../data/transport.data";
+import { transport } from '../data/transport.data'
 export default {
   transport,
-  props: ["lang"],
   data: function() {
     return {
-      currentTab: "Такси",
-      currentIndex: 0
-    };
+      currentTab: 'Такси',
+      currentIndex: 0,
+    }
   },
   methods: {
     onClick(index, tab) {
-      this.currentIndex = index;
-      this.currentTab = tab;
-    }
+      this.currentIndex = index
+      this.currentTab = tab
+    },
   },
   computed: {
     tabs() {
-      return this.textData.tabs;
+      return this.textData.tabs
     },
     currentTransport() {
-      return this.textData.description[this.currentIndex];
+      return this.textData.description[this.currentIndex]
     },
     textData: function() {
-      return transport[this.$store.state.lang];
-    }
-  }
-};
+      return transport[this.$store.state.lang]
+    },
+  },
+}
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .routes {
   padding: 2em;
   background-color: $lighter-white;

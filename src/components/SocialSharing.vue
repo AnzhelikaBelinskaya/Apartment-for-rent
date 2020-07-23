@@ -1,13 +1,13 @@
  <template>
   <div class="share__container">
-    {{titlesText.share}}:
+    {{$options.shareTitles.header | translate}}:
     <div v-for="social in $options.socials" :key="social.network">
       <ShareNetwork
         class="share__link"
         :url="path"
         :network="social.network"
-        :title="titlesText.shareTitle"
-        :description="titlesText.shareText"
+        :title="$options.shareTitles.title | translate"
+        :description="$options.shareTitles.text | translate"
       >
         <img class="social__icon" :src="social.img" />
         {{social.tag}}
@@ -18,32 +18,15 @@
 
 <script>
 import { socials } from "../data/socials.data";
+import { titles } from '../data/titles.data'
 export default {
   socials,
-  data: function() {
-    return {
-      titles: {
-        'ru-RU': {
-          share: 'Поделиться',
-          shareTitle: "Отличная квартира в Сочи",
-          shareText: "Отличный вариант жилья в Сочи"
-        },
-        'en-US': {
-           share: 'Share',
-            shareTitle: "Nice apart in Sochi",
-          shareText: "Look at this apart"
-        }
-      }
-    }
-  },
-  computed:  {
-    titlesText: function() {
-      return this.titles[this.$store.state.lang];
-    },
+ shareTitles: titles.share,
+ computed: {
     path: function() {
-      return window.location.href
+      return window.location.href;
     }
-  }
+ }
 };
 </script>
 

@@ -2,7 +2,7 @@
   <div class="apart__container">
     <Gallery />
     <div class="description__container">
-      <Description :title="titlesText.welcome" :content="descriptionText.description" />
+      <Description :title="$options.apartTitles.welcome | translate" :content="$options.apart.description | translate" />
       <yandexMap
         :component="$options.apart"
         :places="$options.apart.places"
@@ -11,24 +11,24 @@
     </div>
     <div class="pros__container">
       <Description
-        v-for="pro in prosText"
-        :key="pro.title"
+        v-for="pro in $options.pros"
+        :key="pro.title|translate"
         :isRed="true"
-        :title="pro.title"
-        :content="pro.content"
+        :title="pro.title|translate"
+        :content="pro.content|translate"
       />
     </div>
-    <div class="icon__title">{{titlesText.facilities}}</div>
+    <div class="icon__title">{{$options.apartTitles.facilities | translate}}</div>
     <div class="icon__container">
       <div class="icon-block" v-for="icon in $options.icons" :key="icon.id">
-        <img :src="icon.url" :alt="icon.alt" :title="icon.alt" />
+        <img :src="icon.url" :alt="icon.alt | translate" :title="icon.alt | translate" />
       </div>
     </div>
     <a
       class="button__book"
       href="https://www.airbnb.ru/rooms/40915648?s=67&sharer_id=266461835&unique_share_id=c3a0e65f-921c-4d55-a16d-80b70684cdc2"
       target="_blank"
-    >{{titlesText.book}}</a>
+    >{{$options.apartTitles.book | translate}}</a>
   </div>
 </template>
 
@@ -38,44 +38,18 @@ import Description from "./Description.vue";
 import { apart } from "../data/apart.data";
 import { pros } from "../data/pros.data";
 import { icons } from "../data/icons.data";
+import { titles } from "../data/titles.data"
 import Gallery from "./Gallery";
 export default {
   apart,
   pros,
   icons,
-  description: apart.description,
+  apartTitles: titles.apart,
   components: {
     yandexMap,
     Gallery,
     Description
   },
-  data: function() {
-    return {
-      titles: {
-        "ru-RU": {
-          welcome: "Добро пожаловать в Сочи!",
-          facilities: "Удобства",
-          book: "Бронировать"
-        },
-        "en-US": {
-          welcome: "Welcome to Sochi!",
-          facilities: "Facilities",
-          book: "Book now!"
-        }
-      }
-    };
-  },
-  computed: {
-    descriptionText: function() {
-      return apart[this.$store.state.lang];
-    },
-    titlesText: function() {
-      return this.titles[this.$store.state.lang];
-    },
-    prosText: function() {
-      return pros[this.$store.state.lang];
-    }
-  }
 };
 </script>
 

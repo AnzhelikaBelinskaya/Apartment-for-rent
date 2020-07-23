@@ -4,7 +4,7 @@
       <img :src="imageSrc" alt class="attraction__image" />
       <div class="attraction__text">
         <div class="attraction__title">{{ title }}</div>
-        <div class="attraction__type">Категория: {{type}}</div>
+        <div class="attraction__type">{{ $options.attrTitles.category | translate}} : {{ type}}</div>
         <div class="attraction__description">{{content}}</div>
         <div class="attraction__address">{{address}}</div>
       </div>
@@ -13,8 +13,10 @@
 </template>
 
 <script>
+import {titles} from '../data/titles.data'
 export default {
-  props: ["title", "content", "type", "address", "imageSrc"]
+  props: ["title", "content", "type", "address", "imageSrc"],
+attrTitles: titles.attractions,
 };
 </script>
 

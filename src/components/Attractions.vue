@@ -1,17 +1,29 @@
 <template>
   <div class="attractions">
-    <div class="attractions__header">Что посетить?</div>
+    <div class="attractions__header">
+      {{ $options.attrTitles.header | translate }}
+    </div>
     <select
       type="select"
       class="attractions__select"
       @change="switchType($event)"
       v-model="selectedType"
     >
-      <option value="Mountains" class="attractions__option">Горы</option>
-      <option value="Parks" class="attractions__option">Парки</option>
-      <option value="Restaurants" class="attractions__option">Рестораны</option>
-      <option value="Waterfalls" class="attraction__option">Водопады</option>
-      <option value="Activities" class="attraction__option">Развлечения</option>
+      <option value="Mountains" class="attractions__option">
+        {{ $options.attrTitles.select.mountains | translate }}
+      </option>
+      <option value="Parks" class="attractions__option">
+        {{ $options.attrTitles.select.parks | translate }}
+      </option>
+      <option value="Restaurants" class="attractions__option">
+        {{ $options.attrTitles.select.restaurants | translate }}
+      </option>
+      <option value="Waterfalls" class="attraction__option">
+        {{ $options.attrTitles.select.waterfalls | translate }}
+      </option>
+      <option value="Activities" class="attraction__option">
+        {{ $options.attrTitles.select.activities | translate }}
+      </option>
     </select>
     <div class="attractions__container">
       <div class="attractions__item-container">
@@ -36,42 +48,45 @@
 </template>
 
 <script>
-import yandexMap from "./Map";
-import AttractionItem from "./AttractionItem";
-import { attractions } from "../data/attractions.data";
+import yandexMap from './Map'
+import AttractionItem from './AttractionItem'
+import { attractions } from '../data/attractions.data'
+import { titles } from '../data/titles.data'
 export default {
   attractions,
+  attrTitles: titles.attractions,
   components: {
     AttractionItem,
-    yandexMap
+    yandexMap,
   },
   data: function() {
-    return { selectedType: "Parks" };
+    return { selectedType: 'Parks' }
   },
   computed: {
     places: function() {
       return attractions.places.filter(
-        item => item.balloon.footer === this.selectedType
-      );
+        (item) => item.balloon.footer === this.selectedType
+      )
     },
     cards: function() {
-      return this.places.map(item => item.balloon);
+      return this.places.map((item) => item.balloon)
     },
     markerIcon: function() {
-      return attractions.icons.filter(icon => icon.type === this.selectedType)[0];
-    }
+      return attractions.icons.filter(
+        (icon) => icon.type === this.selectedType
+      )[0]
+    },
   },
 
   methods: {
     switchType: function(event) {
-      this.selectedType = event.target.value;
-    }
-  }
-};
+      this.selectedType = event.target.value
+    },
+  },
+}
 </script>
 
-
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .attractions {
   padding: 2em 5em;
 }
