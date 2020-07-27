@@ -67,22 +67,32 @@ export const titles = {
       'en-US': 'Category',
     },
   },
+  transport: {
+    time: {
+      'ru-RU': 'Время в пути',
+      'en-US': 'Time',
+    },
+    cost: {
+      'ru-RU': 'Стоимость',
+      'en-US': 'Cost',
+    },
+  },
   ad: {
     'ru-RU': 'Фотограф в Сочи и Красной Поляне',
     'en-US': 'Photographer in Sochi & Krasnaya Polyana',
   },
   share: {
-      header: {
-        'ru-RU': 'Поделиться',
-        'en-US': 'Share',
-      },
-      title: {
-        'ru-RU': 'Отличная квартира в Сочи',
-        'en-US': 'Nice apart in Sochi',
-      },
-      text: {
-        'ru-RU': 'Отличный вариант жилья в Сочи',
-        'en-US': 'Look at this apart',
-      }
-  }
+    header: {
+      'ru-RU': 'Поделиться',
+      'en-US': 'Share',
+    },
+    title: {
+      'ru-RU': 'Отличная квартира в Сочи',
+      'en-US': 'Nice apart in Sochi',
+    },
+    text: {
+      'ru-RU': 'Отличный вариант жилья в Сочи',
+      'en-US': 'Look at this apart',
+    },
+  },
 }

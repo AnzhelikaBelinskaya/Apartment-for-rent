@@ -7,7 +7,8 @@ export const apart = {
     'en-US': `A bright and comfortable apartment will become your home during your stay in our beautiful city!
   A small but spacious studio is equipped with everything necessary for a comfortable stay of 2 people. You can relax and unwind after a long day full of emotions and new impressions.
    Many guests have already appreciated the benefits of staying in a studio on Klubnichnaya Street and were very pleased with their choice!
-   `},
+   `,
+  },
 
   mapSettings: {
     center: [43.619479, 39.718719],
@@ -18,16 +19,15 @@ export const apart = {
     imageHref: '/img/marker.png',
     imageSize: [31, 46],
     imageOffset: [-18, -46],
-
   },
-  places: [{
-    balloon: {
-      header: 'Klubnichnaya 1/19',
-      body: 'Interesting place',
-      footer: 'To-sleep',
+  places: [
+    {
+      balloon: {
+        header: 'Klubnichnaya 1/19',
+        body: 'Interesting place',
+        footer: 'To-sleep',
+      },
+      coords: [43.619268, 39.716908],
     },
-    coords: [43.619268, 39.716908],
-
-  }
-  ]
+  ],
 }

@@ -1,38 +1,62 @@
 <template>
-  <div class="nav-bar" :class="{'nav-bar_column':isFooter}">
-    <div class="nav-bar__logo" :class="{'nav-bar__logo_hidden': isHidden}">
-      <router-link :to="{name:'Apart'}">
+  <div class="nav-bar" :class="{ 'nav-bar_column': isFooter }">
+    <div class="nav-bar__logo" :class="{ 'nav-bar__logo_hidden': isHidden }">
+      <router-link :to="{ name: 'Apart' }">
         <img src="/img/Logo3.png" />
       </router-link>
     </div>
-    <router-link :to="{name:'Apart'}" class="nav-bar__button">{{$options.navTitles.home | translate}}</router-link>
-    <router-link :to="{name:'Transport'}" class="nav-bar__button">{{$options.navTitles.transport | translate}}</router-link>
-    <router-link :to="{name:'Attractions'}" class="nav-bar__button">{{$options.navTitles.attractions | translate}}</router-link>
-    <div class="lang-switcher__container" :class="{'lang-switcher__container--hidden':isHidden}">
-      <img src="/img/icons/ru.png" class="lang-switcher__button" @click="setLang('ru-RU')" />
-      <img src="/img/icons/eng.png" class="lang-switcher__button" @click="setLang('en-US')" />
+    <router-link :to="{ name: 'Apart' }" class="nav-bar__button">{{
+      $options.navTitles.home | translate
+    }}</router-link>
+    <router-link :to="{ name: 'Transport' }" class="nav-bar__button">{{
+      $options.navTitles.transport | translate
+    }}</router-link>
+    <router-link :to="{ name: 'Attractions' }" class="nav-bar__button">{{
+      $options.navTitles.attractions | translate
+    }}</router-link>
+    <div
+      class="lang-switcher__container"
+      :class="{ 'lang-switcher__container--hidden': isHidden }"
+    >
+      <img
+        src="/img/icons/ru.png"
+        class="lang-switcher__button"
+        @click="setLang('ru-RU')"
+      />
+      <img
+        src="/img/icons/eng.png"
+        class="lang-switcher__button"
+        @click="setLang('en-US')"
+      />
     </div>
-    <div class="theme-switcher__container" :class="{'theme-switcher__container--hidden':isHidden}">
+    <div
+      class="theme-switcher__container"
+      :class="{ 'theme-switcher__container--hidden': isHidden }"
+    >
       <div class="theme-switcher__toggler"></div>
       <div class="theme-switcher__modes">
-        <p class="theme-switcher__mode theme-switcher__mode--light">{{$options.navTitles.lightTheme | translate}}</p>
-        <p class="theme-switcher__mode theme-switcher__mode--dark">{{$options.navTitles.darkTheme | translate}}</p>
+        <p class="theme-switcher__mode theme-switcher__mode--light">
+          {{ $options.navTitles.lightTheme | translate }}
+        </p>
+        <p class="theme-switcher__mode theme-switcher__mode--dark">
+          {{ $options.navTitles.darkTheme | translate }}
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { titles } from "../data/titles.data";
+import { titles } from '../data/titles.data'
 export default {
-  props: ["isFooter", "isHidden"],
+  props: ['isFooter', 'isHidden'],
   navTitles: titles.nav,
   methods: {
     setLang: function(lang) {
-      this.$store.commit("setLang", lang);
+      this.$store.commit('setLang', lang)
     },
-  }
-};
+  },
+}
 </script>
 
 <style scoped lang="scss">

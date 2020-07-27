@@ -1,6 +1,6 @@
- <template>
+<template>
   <div class="share__container">
-    {{$options.shareTitles.header | translate}}:
+    {{ $options.shareTitles.header | translate }}:
     <div v-for="social in $options.socials" :key="social.network">
       <ShareNetwork
         class="share__link"
@@ -10,24 +10,24 @@
         :description="$options.shareTitles.text | translate"
       >
         <img class="social__icon" :src="social.img" />
-        {{social.tag}}
+        {{ social.tag }}
       </ShareNetwork>
     </div>
   </div>
 </template>
 
 <script>
-import { socials } from "../data/socials.data";
+import { socials } from '../data/socials.data'
 import { titles } from '../data/titles.data'
 export default {
   socials,
- shareTitles: titles.share,
- computed: {
+  shareTitles: titles.share,
+  computed: {
     path: function() {
-      return window.location.href;
-    }
- }
-};
+      return window.location.href
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">

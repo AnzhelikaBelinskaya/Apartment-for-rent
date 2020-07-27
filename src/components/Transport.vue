@@ -2,63 +2,49 @@
   <div class="routes">
     <div class="routes__button-container">
       <div
-        v-for="(tab, index) in tabs"
-        :key="index"
-        :class="[
-          'routes__button',
-          { 'routes__button-active': index == currentIndex },
-        ]"
-        @click="onClick(index, tab)"
+        v-for="(tab, index) in $options.transport"
+        :key="tab.id"
+        class="routes__button"
+        :class="{ 'routes__button-active': index == currentTab.id }"
+        @click="switchTab(index)"
       >
-        {{ tab }}
+        {{ tab.type | translate }}
       </div>
     </div>
     <div class="transport__description-container">
       <img class="routes__image" src="/img/road.jpg" alt />
       <div class="transport__instructions">
-        {{ currentTransport.instructions }}
+        {{ currentTab.instructions | translate }}
       </div>
       <div class="transport__time">
-        {{ textData.titles.time }}: {{ currentTransport.time }}
+        {{ $options.titles.transport.time | translate }} :
+        {{ currentTab.time | translate }}
       </div>
       <div class="transport__cost">
-        {{ textData.titles.price }}: {{ currentTransport.cost }}
+        {{ $options.titles.transport.cost | translate }} :
+        {{ currentTab.cost | translate }}
       </div>
-      <a
-        class="transport__link"
-        target="_blank"
-        :href="currentTransport.link"
-        >{{ currentTransport.buttonName }}</a
-      >
+      <a class="transport__link" target="_blank" :href="currentTab.link">{{
+        currentTab.buttonName | translate
+      }}</a>
     </div>
   </div>
 </template>
 
 <script>
 import { transport } from '../data/transport.data'
+import { titles } from '../data/titles.data'
 export default {
   transport,
+  titles,
   data: function() {
     return {
-      currentTab: 'Такси',
-      currentIndex: 0,
+      currentTab: transport[0],
     }
   },
   methods: {
-    onClick(index, tab) {
-      this.currentIndex = index
-      this.currentTab = tab
-    },
-  },
-  computed: {
-    tabs() {
-      return this.textData.tabs
-    },
-    currentTransport() {
-      return this.textData.description[this.currentIndex]
-    },
-    textData: function() {
-      return transport[this.$store.state.lang]
+    switchTab(index) {
+      this.currentTab = transport[index]
     },
   },
 }
@@ -106,7 +92,7 @@ export default {
     padding: 30px 30px;
   }
   &__instructions {
-    padding: 1em;
+    padding: 3em;
     line-height: 2em;
     text-align: justify;
     text-indent: 2em;

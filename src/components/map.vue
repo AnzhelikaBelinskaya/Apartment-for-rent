@@ -1,19 +1,19 @@
 <template>
-  <div class="map__container" :component="component" :places="places" >
+  <div class="map__container" :component="component" :places="places">
     <yandex-map
       :settings="{
         apiKey: '10588863-f27e-4023-9c46-f348f5ac6351',
         lang: this.$store.state.lang,
         coordorder: 'latlong',
-        version: '2.1'
-        }"
+        version: '2.1',
+      }"
       :coords="center"
       :zoom="zoom"
       :markerIcon="markerIcon"
       ymap-class="map__container"
     >
       <ymap-marker
-        v-for="(point,index) in places"
+        v-for="(point, index) in places"
         :key="point.id"
         :coords="point.coords"
         :icon="markerIcon"
@@ -24,17 +24,16 @@
   </div>
 </template>
 
-
 <script>
-import { yandexMap, ymapMarker } from "vue-yandex-maps";
+import { yandexMap, ymapMarker } from 'vue-yandex-maps'
 
 export default {
-  props: ["component", "places", "markerIcon"],
+  props: ['component', 'places', 'markerIcon'],
   components: { yandexMap, ymapMarker },
   data: function() {
-    return this.component.mapSettings;
-  }
-};
+    return this.component.mapSettings
+  },
+}
 </script>
 <style lang="scss">
 .map__container {

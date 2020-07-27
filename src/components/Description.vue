@@ -1,14 +1,19 @@
 <template>
   <div class="description">
-    <div class="description__title" :class="{'description__title-red': isRed}">{{ title }}</div>
-    <div class="description__content">{{content}}</div>
+    <div
+      class="description__title"
+      :class="{ 'description__title-red': isRed }"
+    >
+      {{ title }}
+    </div>
+    <div class="description__content">{{ content }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["title", "content", "isRed"]
-};
+  props: ['title', 'content', 'isRed'],
+}
 </script>
 
 <style scoped lang="scss">
