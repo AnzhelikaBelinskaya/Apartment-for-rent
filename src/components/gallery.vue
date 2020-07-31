@@ -47,12 +47,12 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0px 8px 7px -1px rgba(255, 255, 255, 1);
   margin: 5px;
   border-radius: 5px;
 
   &:hover {
     box-shadow: 0px 8px 7px -1px $lighter-primary-color;
+    transform: scale(1.05);
   }
 }
 </style>

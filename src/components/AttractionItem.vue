@@ -24,7 +24,7 @@ export default {
 
 <style scoped lang="scss">
 .attraction__item {
-  background-color: white;
+  background-color: var(--lighterbg);
   border-radius: 10px;
   padding: 1em;
   width: 90%;
@@ -43,7 +43,7 @@ export default {
   font-size: 1.2em;
   text-align: center;
   font-weight: 700;
-  background-color: $lighter-primary-color;
+  background-color: var(--ligherbg);
   border-radius: 5px;
   padding: 0.3em;
   width: 100%;

@@ -33,14 +33,14 @@
       class="theme-switcher__container"
       :class="{ 'theme-switcher__container--hidden': isHidden }"
     >
-      <div class="theme-switcher__toggler"></div>
+      <div 
+      class="theme-switcher__toggler"
+      :class="{'theme-switcher__toggler-dark': isDark}"
+        @click="switchMode"
+      ></div>
       <div class="theme-switcher__modes">
-        <p class="theme-switcher__mode theme-switcher__mode--light">
-          {{ $options.navTitles.lightTheme | translate }}
-        </p>
-        <p class="theme-switcher__mode theme-switcher__mode--dark">
-          {{ $options.navTitles.darkTheme | translate }}
-        </p>
+        <img class="theme-switcher__icon" src="img/icons/sun.png">
+        <img class="theme-switcher__icon" src="img/icons/moon.png">
       </div>
     </div>
   </div>
@@ -51,10 +51,18 @@ import { titles } from '../data/titles.data'
 export default {
   props: ['isFooter', 'isHidden'],
   navTitles: titles.nav,
+  computed: {
+    isDark: function() {
+      return this.$store.state.dark;
+    }
+  },
   methods: {
     setLang: function(lang) {
       this.$store.commit('setLang', lang)
     },
+    switchMode: function() {
+      this.$store.commit('switchMode')
+    }
   },
 }
 </script>
@@ -73,7 +81,7 @@ export default {
     text-decoration: none;
     padding: 5px 20px;
     border-left: 1px solid $lighter-primary-color;
-    color: $font-color;
+    color: var(--titles);
     cursor: pointer;
     &:hover {
       background-color: $hover-font-color;
@@ -107,6 +115,7 @@ export default {
   width: 3vw;
   height: 2vw;
   padding: 0 0.5em;
+  cursor: pointer;
   &:active {
     border: 1px solid $bg-red;
   }
@@ -120,7 +129,7 @@ export default {
   position: relative;
   border-radius: 100px;
   box-shadow: -4px 4px 10px -2px rgba(85, 55, 10, 0.302);
-  width: 7vw;
+  width: 5vw;
   height: 2vw;
   margin: 0 0.5vw;
 }
@@ -131,26 +140,29 @@ export default {
 
 .theme-switcher__modes {
   @include flexrow(space-between);
-  height: 2em;
-}
-.theme-switcher__mode {
-  text-align: center;
-  margin: 0;
-  line-height: 2vw;
-  padding: 0 0.5vw;
-  font-size: 12px;
+  vertical-align: middle;
+  height: 2vw;
 }
 
+
 .theme-switcher__toggler {
-  background-color: $lighter-primary-color;
-  width: 3.5vw;
+  background-color: $primary-color;
+  width: 2.5vw;
   height: 2vw;
   position: absolute;
   left: 0;
   top: 0;
   border-radius: 100px;
-  &:active {
-    left: 50%;
+  cursor: pointer;
+  &-dark {
+   left: 50%;
   }
+}
+
+.theme-switcher__icon {
+  width: 16px;
+  height: 16px;
+  margin: auto;
+
 }
 </style>

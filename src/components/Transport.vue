@@ -53,12 +53,13 @@ export default {
 <style scoped lang="scss">
 .routes {
   padding: 2em;
-  background-color: $lighter-white;
+  background-color: var(--lighterbg);
   @include flexrow(space-around);
 
   &__button-container {
     @include flexcol(flex-start);
     padding: 50px 0;
+
   }
 
   &__button {
@@ -85,7 +86,7 @@ export default {
 .transport {
   &__description-container {
     position: relative;
-    background-color: $lighter-primary-color;
+   
     width: 70%;
     height: 400px;
     border-radius: 4px;

@@ -50,11 +50,13 @@ import { pros } from '../data/pros.data'
 import { icons } from '../data/icons.data'
 import { titles } from '../data/titles.data'
 import Gallery from './Gallery'
+
 export default {
   apart,
   pros,
   icons,
   apartTitles: titles.apart,
+  
   components: {
     yandexMap,
     Gallery,
@@ -66,10 +68,12 @@ export default {
 <style scoped lang="scss">
 .apart__container {
   padding-bottom: 2vw;
+  color: var(--txt);
 }
 .description__container {
   @include flexrow(space-around);
   padding: 2vw 2vw;
+  
 }
 .pros__container {
   @include flexrow(space-between);
@@ -105,7 +109,7 @@ export default {
   width: 200px;
   height: 70px;
   background-color: $lighter-red;
-  color: white;
+  color: $lighter-white;
   text-decoration: none;
   border-radius: 5px;
   text-align: center;
