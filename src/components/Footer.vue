@@ -30,32 +30,45 @@ export default {
 
 <style scoped lang="scss">
 .footer__container {
-  margin-top: 70px;
+  margin-top: 5vw;
   @include flexrow(space-between);
   width: 100%;
-  background-color: $lighter-primary-color;
+   @include mobile {
+    @include flexcol(flex-start);
+  }
 }
 .ad__image {
   background: url('/img/collage2.png') no-repeat;
   background-size: contain;
-  width: 462px;
-  height: 100px;
+  width: 25vw;
+  height: 5vw;
+  @include mobile {
+     width: 100vw;
+    height: 20vw;
+  }
 }
 
 .ad__container {
   display: block;
-  background-color: $lighter-primary-color;
-  margin-top: 30px;
-  padding: 15px;
-  width: 462px;
-  height: 120px;
+  margin-top: 2vw;
+  padding: 2vw;
+  width: 25vw;
+  height: 5vw;
   text-decoration: none;
-  color: $font-color;
+  color: var(--txt);
+  font-size: 1vw;
+@include mobile {
+    width: 100vw;
+    height: 20vw;
+    font-size: 16px;
+  }
+ 
 }
 
 .ad__icon {
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  
 }
 </style>

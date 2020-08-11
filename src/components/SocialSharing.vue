@@ -33,16 +33,23 @@ export default {
 <style scoped lang="scss">
 .share {
   &__container {
-    margin-top: 30px;
+    margin-top: 3vw;
     font-weight: 600;
-    line-height: 30px;
+    line-height: 2vw;
+    @include mobile {
+      margin: 36px;
+      line-height: 36px;
+    }
   }
   &__link {
     font-weight: 500;
     cursor: pointer;
+     @include mobile {
+      margin: 18px;
+    }
   }
 }
 .social__icon {
-  padding: 0 3px;
+  padding: 0 0.3vw;
 }
 </style>

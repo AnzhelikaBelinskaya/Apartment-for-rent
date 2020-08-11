@@ -26,9 +26,9 @@ export default {
 .attraction__item {
   background-color: var(--lighterbg);
   border-radius: 10px;
-  padding: 1em;
+  padding: 1vw;
   width: 90%;
-  margin: 1em;
+  margin: 1vw;
   box-shadow: -3px 3px 5px 0px $hover-font-color;
   &:hover {
     transform: scale(1.02);
@@ -36,16 +36,16 @@ export default {
 }
 
 .attraction__text {
-  padding: 0.5em;
+  padding: 0.5vw;
   height: 8vw;
 }
 .attraction__title {
-  font-size: 1.2em;
+  font-size: 1.2vw;
   text-align: center;
   font-weight: 700;
   background-color: var(--ligherbg);
   border-radius: 5px;
-  padding: 0.3em;
+  padding: 0.3vw;
   width: 100%;
 }
 .attraction__description-container {
@@ -55,7 +55,7 @@ export default {
 
 .attraction__image {
   border-radius: 5px;
-  box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
   width: 8vw;
   height: 8vw;
 }

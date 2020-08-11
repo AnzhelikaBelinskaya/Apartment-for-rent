@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <div class="main__background"></div>
     <NavBar :isFooter="false" :isHidden="false" />
+
     <router-view class="main__container"></router-view>
     <Footer />
   </div>
@@ -22,17 +24,24 @@ export default {
       return this.$store.state.dark;
     },
   },
-
+  mounted: function () {
+    this.$store.state.dark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+  },
   watch: {
     dark() {
-      const bg = this.dark ? "rgb(78, 62, 54)" : "rgba(255, 255, 255, 0.6)";
-      const lighterbg = this.dark ? " rgba(218, 160, 73, 0.11)" : "rgba(85, 55, 10, 0.1)";
+      const bg = this.dark
+        ? "rgba(78, 62, 54, 0.5)"
+        : "rgba(255, 255, 255, 0.3)";
+
       const txt = this.dark ? "rgba(255, 255, 255, 0.6)" : "rgb(87, 56, 10)";
-      const titlescolor = this.dark ? "rgba(255, 255, 255, 0.6)" : "rgb(87, 56, 10)"
+      const titlescolor = this.dark
+        ? "rgba(255, 255, 255, 0.6)"
+        : "rgb(87, 56, 10)";
       document.documentElement.style.setProperty("--bg", bg);
-      document.documentElement.style.setProperty("--lighterbg", lighterbg);
       document.documentElement.style.setProperty("--txt", txt);
-      document.documentElement.style.setProperty("--titles", titlescolor)
+      document.documentElement.style.setProperty("--titles", titlescolor);
     },
   },
 };
@@ -40,9 +49,8 @@ export default {
 
 <style lang="scss">
 :root {
-  --bg: $lighter-primary-color;
+  --bg: rgba(255, 255, 255, 0.3);
   --txt: $font-color;
-  --lighterbg: rgba(85, 55, 10, 0.1)
 }
 
 #app {
@@ -52,8 +60,23 @@ export default {
   color: var(--txt);
   background-color: var(--bg);
 }
+
 .main__container {
-  margin: 10px 40px;
+  margin: 1wv 4wv;
   background-color: var(--bg);
+}
+
+.main__background {
+  background-image: url("/img/paralax.jpg");
+  background-repeat: no-repeat;
+  background-size: 110%;
+  position: fixed;
+  width: 100%;
+  height: 100vw;
+  z-index: -5;
+  @include mobile {
+   height: 110vh;
+   background-size: cover;
+  }
 }
 </style>

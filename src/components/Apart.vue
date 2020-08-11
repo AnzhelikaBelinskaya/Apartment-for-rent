@@ -69,33 +69,44 @@ export default {
 .apart__container {
   padding-bottom: 2vw;
   color: var(--txt);
+
 }
 .description__container {
   @include flexrow(space-around);
   padding: 2vw 2vw;
+  @include mobile {
+    @include flexcol(flex-start);
+    padding: 18px 18px;
+  }
   
 }
 .pros__container {
   @include flexrow(space-between);
-  margin: 50px auto;
+  margin: 5vw auto;
   width: 70%;
   flex-wrap: wrap;
 }
 .icon__title {
   color: $red;
-  font-size: 20px;
+  font-size: 1.8vw;
   text-align: center;
-  margin: 20px;
+  margin: 2vw;
   font-weight: 600;
+  @include mobile {
+    font-size: 18px;
+  }
 }
 .icon__container {
   @include flexrow(center);
+  @include mobile {
+    flex-wrap: wrap;
+  }
 }
 .icon-block {
   width: 65px;
   height: 65px;
   border: 1px solid $lighter-font-color;
-  margin: 10px;
+  margin: 1vw;
   text-align: center;
 
   img {
@@ -106,16 +117,22 @@ export default {
 }
 .button__book {
   display: block;
-  width: 200px;
-  height: 70px;
+  width: 18vw;
+  height: 5vw;
   background-color: $lighter-red;
   color: $lighter-white;
   text-decoration: none;
   border-radius: 5px;
   text-align: center;
-  line-height: 70px;
-  margin: 50px auto;
-  font-size: 20px;
+  line-height: 5vw;
+  margin: 5vw auto;
+  font-size: 1.8vw;
+  @include mobile {
+    font-size: 18px;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+  }
 
   &:hover {
     background-color: $red;

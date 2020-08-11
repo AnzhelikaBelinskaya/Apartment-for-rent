@@ -52,25 +52,25 @@ export default {
 
 <style scoped lang="scss">
 .routes {
-  padding: 2em;
-  background-color: var(--lighterbg);
+  padding: 2vw;
+  background-color: var(--bg);
   @include flexrow(space-around);
 
   &__button-container {
     @include flexcol(flex-start);
-    padding: 50px 0;
+    padding: 5vw 0;
 
   }
 
   &__button {
     display: block;
-    padding: 20px;
+    padding: 1.5vw;
     box-shadow: 4px 4px 20px -2px $lighter-font-color;
     text-align: center;
-    margin: 20px 40px;
+    margin: 1vw 2vw;
     border-radius: 4px;
-    width: 100px;
-    height: 20px;
+    width: 8vw;
+    height: 1.2vw;
     cursor: pointer;
     &-active {
       background-color: $lighter-font-color;
@@ -79,7 +79,7 @@ export default {
   &__image {
     float: right;
     width: 30%;
-    height: 400px;
+    height: 40vw;
     border-radius: 2px;
   }
 }
@@ -88,39 +88,39 @@ export default {
     position: relative;
    
     width: 70%;
-    height: 400px;
+    height: 40vw;
     border-radius: 4px;
-    padding: 30px 30px;
+    padding: 3vw 3vw;
   }
   &__instructions {
-    padding: 3em;
-    line-height: 2em;
+    padding: 3vw;
+    line-height: 3vw;
     text-align: justify;
-    text-indent: 2em;
+    text-indent: 2vw;
     max-width: 60%;
   }
   &__time {
-    padding: 1em;
-    color: $lighter-red;
+    padding: 1vw;
+    color: var(--titlescolor);
   }
   &__cost {
-    padding: 1em;
-    color: $lighter-red;
+    padding: 1vw;
+    color: var(--titlescolor);
   }
   &__link {
     position: absolute;
-    bottom: 30px;
+    bottom: 3vw;
     right: 40%;
     display: block;
-    width: 200px;
-    height: 50px;
+    width: 18vw;
+    height: 5vw;
     background-color: $lighter-red;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     text-align: center;
-    line-height: 50px;
-    font-size: 14px;
+    line-height: 5vw;
+    font-size: 1.4vw;
     &:hover {
       background-color: $red;
     }

@@ -88,7 +88,7 @@ export default {
 
 <style scoped lang="scss">
 .attractions {
-  padding: 2em 5em;
+  padding: 2vw 5vw;
 }
 .attractions__container {
   @include flexrow(space-between);
@@ -99,9 +99,10 @@ export default {
   flex-wrap: no-wrap;
   min-width: 55%;
   overflow-y: scroll;
+  margin: 1vw;
 
   &::-webkit-scrollbar {
-    width: 10px;
+    width: 1vw;
   }
 
   &::-webkit-scrollbar-track {

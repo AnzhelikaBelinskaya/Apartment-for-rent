@@ -41,5 +41,9 @@ export default {
   width: 35vw;
   border: 1px solid white;
   box-shadow: -4px 4px 10px -2px rgba(85, 55, 10, 0.302);
+  @include mobile {
+    width: 90vw;
+    height: 90vw;
+  }
 }
 </style>
