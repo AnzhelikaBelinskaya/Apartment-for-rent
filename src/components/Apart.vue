@@ -21,68 +21,63 @@
         :content="pro.content | translate"
       />
     </div>
-    <div class="icon__title">
-      {{ $options.apartTitles.facilities | translate }}
-    </div>
+    <div class="icon__title">{{ $options.apartTitles.facilities | translate }}</div>
     <div class="icon__container">
       <div class="icon-block" v-for="icon in $options.icons" :key="icon.id">
-        <img
-          :src="icon.url"
-          :alt="icon.alt | translate"
-          :title="icon.alt | translate"
-        />
+        <img :src="icon.url" :alt="icon.alt | translate" :title="icon.alt | translate" />
       </div>
     </div>
     <a
       class="button__book"
       href="https://www.airbnb.ru/rooms/40915648?s=67&sharer_id=266461835&unique_share_id=c3a0e65f-921c-4d55-a16d-80b70684cdc2"
       target="_blank"
-      >{{ $options.apartTitles.book | translate }}</a
-    >
+    >{{ $options.apartTitles.book | translate }}</a>
   </div>
 </template>
 
 <script>
-import yandexMap from './Map'
-import Description from './Description.vue'
-import { apart } from '../data/apart.data'
-import { pros } from '../data/pros.data'
-import { icons } from '../data/icons.data'
-import { titles } from '../data/titles.data'
-import Gallery from './Gallery'
+import yandexMap from "./Map";
+import Description from "./Description.vue";
+import { apart } from "../data/apart.data";
+import { pros } from "../data/pros.data";
+import { icons } from "../data/icons.data";
+import { titles } from "../data/titles.data";
+import Gallery from "./Gallery";
 
 export default {
   apart,
   pros,
   icons,
   apartTitles: titles.apart,
-  
+
   components: {
     yandexMap,
     Gallery,
     Description,
   },
-}
+};
 </script>
 
 <style scoped lang="scss">
 .apart__container {
   padding-bottom: 2vw;
   color: var(--txt);
-
 }
+
 .description__container {
   @include flexrow(space-around);
   padding: 2vw 2vw;
   @include mobile {
     @include flexcol(flex-start);
-    padding: 18px 18px;
+    align-items: center;
+    width: auto;
+    padding: 10px 10px;
   }
-  
 }
 .pros__container {
   @include flexrow(space-between);
   margin: 5vw auto;
+  align-items: center;
   width: 70%;
   flex-wrap: wrap;
 }
@@ -99,7 +94,9 @@ export default {
 .icon__container {
   @include flexrow(center);
   @include mobile {
+    margin: 0 auto;
     flex-wrap: wrap;
+    width: 95%;
   }
 }
 .icon-block {

@@ -59,24 +59,31 @@ export default {
   font-family: "Montserrat", sans-serif;
   color: var(--txt);
   background-color: var(--bg);
+  @include mobile {
+    width: auto;
+  };
 }
 
 .main__container {
-  margin: 1wv 4wv;
+  margin: 1vw 4vw;
   background-color: var(--bg);
+  @include mobile {
+    margin: 0 auto;
+    width: auto;
+  }
 }
 
 .main__background {
   background-image: url("/img/paralax.jpg");
   background-repeat: no-repeat;
-  background-size: 110%;
+  background-size: 100%;
   position: fixed;
   width: 100%;
-  height: 100vw;
+  height: 100%;
   z-index: -5;
   @include mobile {
-   height: 110vh;
-   background-size: cover;
+    height: 100vh;
+    background-size: cover;
   }
 }
 </style>

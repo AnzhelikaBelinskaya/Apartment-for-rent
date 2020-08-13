@@ -20,7 +20,7 @@ export default {
   max-width: 45%;
   @include mobile {
     max-width: 90%;
-    padding: 20px;
+    padding: 10px;
     line-height: 16px;
   }
 
