@@ -55,10 +55,18 @@ export default {
   padding: 2vw;
   background-color: var(--bg);
   @include flexrow(space-around);
+  @include mobile {
+    @include flexcol(flex-start);
+    align-items: center;
+  }
 
   &__button-container {
     @include flexcol(flex-start);
     padding: 5vw 0;
+    @include mobile {
+      @include flexrow(space-around);
+      
+    }
 
   }
 
@@ -75,22 +83,38 @@ export default {
     &-active {
       background-color: $lighter-font-color;
     }
+    @include mobile {
+      padding: 0 5px;
+      margin: 10px 5px;
+      width: 30%;
+      height: 18px;
+      font-size: 12px;
+      line-height: 18px;
+      box-shadow: none;
+    }
   }
   &__image {
     float: right;
     width: 30%;
     height: 40vw;
     border-radius: 2px;
+    @include mobile {
+      display: none;
+    }
   }
 }
 .transport {
   &__description-container {
     position: relative;
-   
     width: 70%;
     height: 40vw;
     border-radius: 4px;
     padding: 3vw 3vw;
+    @include mobile {
+      width: auto;
+      height: auto;
+      padding: 20px;
+    }
   }
   &__instructions {
     padding: 3vw;
@@ -98,14 +122,27 @@ export default {
     text-align: justify;
     text-indent: 2vw;
     max-width: 60%;
+    @include mobile {
+      max-width: 90%;
+      padding: 0;
+      margin: 10px auto;
+      line-height: 18px;
+      text-indent: 20px;
+    }
   }
   &__time {
     padding: 1vw;
     color: var(--titlescolor);
+    @include mobile {
+      padding: 5px;
+    }
   }
   &__cost {
     padding: 1vw;
     color: var(--titlescolor);
+    @include mobile {
+      padding: 5px 5px 70px 5px;
+    }
   }
   &__link {
     position: absolute;
@@ -123,6 +160,14 @@ export default {
     font-size: 1.4vw;
     &:hover {
       background-color: $red;
+    }
+    @include mobile {
+      bottom: 5px;
+      right: 10%;
+      width: 80%;
+      height: 50px;
+      line-height: 50px;
+      font-size: 16px;
     }
   }
 }

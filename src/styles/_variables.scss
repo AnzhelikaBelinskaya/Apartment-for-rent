@@ -12,6 +12,7 @@ $lighter-white: rgba(255, 255, 255, 0.6);
 
 @mixin flexrow($justify){
     display: flex;
+    flex-direction: row;
     justify-content: $justify;
 }
 

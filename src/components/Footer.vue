@@ -25,9 +25,8 @@ export default {
 
 <style scoped lang="scss">
 .footer__container {
-  margin-top: 5vw;
+  padding: 5vw 5vw;
   @include flexrow(space-between);
-  width: 100%;
   @include mobile {
     @include flexcol(flex-start);
     align-items: center;

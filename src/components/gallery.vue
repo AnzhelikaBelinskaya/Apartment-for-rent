@@ -44,9 +44,17 @@ export default {
   padding: 40px 0;
   margin: 2px 40px;
   display: flex;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    width: 1vw;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
   @include mobile {
     width: auto;
-    overflow: scroll;
+
     -webkit-overflow-scrolling: touch;
     margin: 2px 5px;
   }
@@ -64,6 +72,6 @@ export default {
   }
 }
 .gallery__preview-wrapper {
-  display: flex; 
+  display: flex;
 }
 </style>

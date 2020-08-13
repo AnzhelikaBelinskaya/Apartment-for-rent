@@ -126,9 +126,10 @@ export default {
   font-size: 1.8vw;
   @include mobile {
     font-size: 18px;
-    width: 150px;
+    width: 80%;
     height: 50px;
     line-height: 50px;
+    font-size: 16px;
   }
 
   &:hover {
