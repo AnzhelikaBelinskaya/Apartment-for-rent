@@ -20,6 +20,11 @@
       $options.navTitles.attractions | translate
       }}
     </router-link>
+    <div class="nav-bar__button">
+      {{
+      $options.navTitles.feedback | translate
+      }}
+    </div>
     <div class="lang-switcher__container" :class="{ 'lang-switcher__container--hidden': isHidden }">
       <img src="/img/icons/ru.png" class="lang-switcher__button" @click="setLang('ru-RU')" />
       <img src="/img/icons/eng.png" class="lang-switcher__button" @click="setLang('en-US')" />
@@ -89,6 +94,7 @@ export default {
     @include mobile {
       border: none;
       font-size: 16px;
+      line-height: 50px;
       text-decoration: none;
     }
   }
@@ -126,8 +132,9 @@ export default {
   height: 2vw;
   padding: 0 0.5vw;
   @include mobile {
-    width: 24px;
-    height: 20px;
+    width: 46px;
+    height: 40px;
+    margin: 20px 10px;
   }
   cursor: pointer;
   &:active {
@@ -147,9 +154,8 @@ export default {
   height: 1.5vw;
   margin: 0 0.5vw;
   @include mobile {
-    width: 48px;
-    height: 20px;
-    margin-top: 20px;
+    width: 80px;
+    height: 40px;
   }
 }
 
@@ -162,7 +168,7 @@ export default {
   vertical-align: middle;
   height: 1.5vw;
   @include mobile {
-    height: 20px;
+    height: 40px;
   }
 }
 
@@ -175,9 +181,8 @@ export default {
   top: 0;
   border-radius: 100px;
   @include mobile {
-    
-    width: 24px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
   }
   cursor: pointer;
   &-dark {
@@ -189,5 +194,9 @@ export default {
   width: 1.2vw;
   height: 1.2vw;
   margin: auto;
+  @include mobile {
+    width: 16px;
+    height: 16px;
+  }
 }
 </style>

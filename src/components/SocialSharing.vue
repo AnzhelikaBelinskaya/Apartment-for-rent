@@ -17,17 +17,17 @@
 </template>
 
 <script>
-import { socials } from '../data/socials.data'
-import { titles } from '../data/titles.data'
+import { socials } from "../data/socials.data";
+import { titles } from "../data/titles.data";
 export default {
   socials,
   shareTitles: titles.share,
   computed: {
-    path: function() {
-      return window.location.href
+    path: function () {
+      return window.location.href;
     },
   },
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -38,18 +38,23 @@ export default {
     line-height: 2vw;
     @include mobile {
       margin: 36px;
-      line-height: 36px;
+      line-height: 50px;
     }
   }
   &__link {
     font-weight: 500;
     cursor: pointer;
-     @include mobile {
+    @include mobile {
+      font-size: 18px;
+      line-height: 50px;
       margin: 18px;
     }
   }
 }
 .social__icon {
   padding: 0 0.3vw;
+  @include mobile {
+    padding-right: 10px;
+  }
 }
 </style>

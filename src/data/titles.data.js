@@ -12,6 +12,10 @@ export const titles = {
       'ru-RU': 'Что посетить?',
       'en-US': 'Attractions',
     },
+    feedback: {
+      'ru-RU': 'Обратная связь',
+      'en-US': 'Feedback',
+    },
     lightTheme: {
       'ru-RU': 'Светлая',
       'en-US': 'Light',
@@ -75,6 +79,28 @@ export const titles = {
     cost: {
       'ru-RU': 'Стоимость',
       'en-US': 'Cost',
+    },
+  },
+  feedback: {
+    header: {
+      'ru-RU': 'Обратная связь',
+      'en-US': 'Feedback',
+    },
+    name: {
+      'ru-RU': 'Имя',
+      'en-US': 'Name',
+    },
+    phone: {
+      'ru-RU': 'Номер телефона',
+      'en-US': 'Phone number', 
+    },
+    text: {
+      'ru-RU': 'Задайте Ваш вопрос или оставьте отзыв',
+      'en-US': 'Ask your question or leave a review',
+    },
+    button: {
+      'ru-RU': 'Отправить',
+      'en-US': 'Submit',
     },
   },
   ad: {

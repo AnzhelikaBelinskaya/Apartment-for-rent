@@ -2,15 +2,15 @@
   <div id="app">
     <div class="main__background"></div>
     <NavBar :isFooter="false" :isHidden="false" />
-
     <router-view class="main__container"></router-view>
+    <Feedback />
     <Footer />
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-
+import Feedback from "./components/Feedback";
 import Footer from "./components/Footer.vue";
 
 export default {
@@ -18,6 +18,7 @@ export default {
   components: {
     NavBar,
     Footer,
+    Feedback,
   },
   computed: {
     dark: function () {

@@ -84,12 +84,12 @@ export default {
       background-color: $lighter-font-color;
     }
     @include mobile {
-      padding: 0 5px;
+      padding: 0 7px;
       margin: 10px 5px;
       width: 30%;
-      height: 18px;
-      font-size: 12px;
-      line-height: 18px;
+      height: 50px;
+      font-size: 16px;
+      line-height: 50px;
       box-shadow: none;
     }
   }
