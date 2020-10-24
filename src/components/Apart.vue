@@ -117,7 +117,7 @@ export default {
   width: 18vw;
   height: 5vw;
   background-color: $lighter-red;
-  color: $lighter-white;
+  color: white;
   text-decoration: none;
   border-radius: 5px;
   text-align: center;

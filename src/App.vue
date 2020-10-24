@@ -3,15 +3,18 @@
     <div class="main__background"></div>
     <NavBar :isFooter="false" :isHidden="false" />
     <router-view class="main__container"></router-view>
-    <Feedback />
+    <Modal v-if='showModal'>
+      <Feedback />
+    </Modal>
     <Footer />
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-import Feedback from "./components/Feedback";
+import Feedback from "./components/Feedback.vue";
 import Footer from "./components/Footer.vue";
+import Modal from "./components/Modal.vue";
 
 export default {
   name: "App",
@@ -19,11 +22,16 @@ export default {
     NavBar,
     Footer,
     Feedback,
+    Modal
   },
   computed: {
     dark: function () {
       return this.$store.state.dark;
     },
+    showModal: function () {
+      return this.$route.query.name == 'showModal';
+    }
+ 
   },
   mounted: function () {
     this.$store.state.dark = window.matchMedia(
@@ -40,10 +48,13 @@ export default {
       const titlescolor = this.dark
         ? "rgba(255, 255, 255, 0.6)"
         : "rgb(87, 56, 10)";
+        const modal = this.dark ? "rgb(88, 78, 65)" : "rgb(255, 255, 255)";
       document.documentElement.style.setProperty("--bg", bg);
       document.documentElement.style.setProperty("--txt", txt);
       document.documentElement.style.setProperty("--titles", titlescolor);
+      document.documentElement.style.setProperty("--modal", modal);
     },
+    
   },
 };
 </script>
@@ -60,14 +71,13 @@ export default {
   font-family: "Montserrat", sans-serif;
   color: var(--txt);
   background-color: var(--bg);
-   width: auto;
+  width: auto;
 }
 
 .main__container {
- margin: 0 auto;
+  margin: 0 auto;
   background-color: var(--bg);
   @include mobile {
-    
     width: auto;
   }
 }

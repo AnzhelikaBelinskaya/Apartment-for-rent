@@ -13,6 +13,7 @@ export const store = new Vuex.Store({
       state.lang = lang
     },
     switchMode(state) {
-      state.dark =!state.dark   }
+      state.dark =!state.dark   
+    },
   },
 })

@@ -20,7 +20,7 @@
       $options.navTitles.attractions | translate
       }}
     </router-link>
-    <div class="nav-bar__button">
+    <div class="nav-bar__button" @click="showModal">
       {{
       $options.navTitles.feedback | translate
       }}
@@ -62,6 +62,9 @@ export default {
     },
     switchMode: function () {
       this.$store.commit("switchMode");
+    },
+     showModal: function () {
+      this.$router.push({path: this.$router.path, query:{name: 'showModal'}});
     },
   },
 };

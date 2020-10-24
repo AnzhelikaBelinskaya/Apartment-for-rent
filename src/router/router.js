@@ -8,8 +8,9 @@ Vue.use(VueRouter)
 
 export const router = new VueRouter({
   routes: [
-    { path: '/', name: 'Apart', component: Apart },
+    { path: '/', name: 'Apart', component: Apart},
     { path: '/attractions', name: 'Attractions', component: Attractions },
-    { path: '/transport', name: 'Transport', component: Transport },
+    { path: '/transport', name: 'Transport', component: Transport},
+
   ],
 })
