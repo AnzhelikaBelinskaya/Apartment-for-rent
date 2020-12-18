@@ -32,11 +32,11 @@ export default {
 .modal__window {
   position: relative;
   background-color: var(--modal);
-  box-shadow: 0px 0px 10px 1px $lighter-font-color;
+  box-shadow: 0px 0px 2px 2px $lighter-white;
   border-radius: 5px;
-  margin: 10vw auto;
-  width: 30%;
-  padding: 2vw;
+  margin: 3vw auto;
+  width: 40%;
+  padding: 1vw;
 }
 .modal__close-button {
   position: absolute;

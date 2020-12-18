@@ -8,36 +8,32 @@
       v-model="selectedType"
     >
       <option
-        value="Mountains"
+        value="Nature"
         class="attractions__option"
-      >{{ $options.attrTitles.select.mountains | translate }}</option>
+      >{{ $options.attrTitles.select.nature | translate }}</option>
       <option
-        value="Parks"
+        value="City"
         class="attractions__option"
-      >{{ $options.attrTitles.select.parks | translate }}</option>
+      >{{ $options.attrTitles.select.city | translate }}</option>
       <option
         value="Restaurants"
         class="attractions__option"
       >{{ $options.attrTitles.select.restaurants | translate }}</option>
       <option
-        value="Waterfalls"
-        class="attraction__option"
-      >{{ $options.attrTitles.select.waterfalls | translate }}</option>
-      <option
         value="Activities"
         class="attraction__option"
       >{{ $options.attrTitles.select.activities | translate }}</option>
+      
     </select>
     <div class="attractions__container">
       <div class="attractions__item-container">
         <AttractionItem
-          v-for="(card, index) in cards"
-          :imageSrc="card.imageSrc"
+          v-for="(place, index) in places"
+          :imageSrc="place.imageSrc"
           :key="index"
-          :title="card.header"
-          :content="card.body"
-          :type="card.footer"
-          :address="card.address"
+          :title="place.title | translate"
+          :content="place.description | translate"
+          :address="place.address | translate"
         />
       </div>
       <yandexMap
@@ -63,16 +59,13 @@ export default {
     yandexMap,
   },
   data: function () {
-    return { selectedType: "Parks" };
+    return { selectedType: "Nature" };
   },
   computed: {
     places: function () {
       return attractions.places.filter(
-        (item) => item.balloon.footer === this.selectedType
+        (item) => item.type === this.selectedType
       );
-    },
-    cards: function () {
-      return this.places.map((item) => item.balloon);
     },
     markerIcon: function () {
       return attractions.icons.filter(

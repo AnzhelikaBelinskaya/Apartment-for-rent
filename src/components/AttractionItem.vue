@@ -4,8 +4,8 @@
       <img :src="imageSrc" alt class="attraction__image" />
       <div class="attraction__text">
         <div class="attraction__title">{{ title }}</div>
-        <div class="attraction__type">{{ $options.attrTitles.category | translate }} : {{ type }}</div>
         <div class="attraction__description">{{ content }}</div>
+        <br />
         <div class="attraction__address">{{ address }}</div>
       </div>
     </div>
@@ -15,7 +15,7 @@
 <script>
 import { titles } from "../data/titles.data";
 export default {
-  props: ["title", "content", "type", "address", "imageSrc"],
+  props: ["title", "content", "address", "imageSrc"],
   attrTitles: titles.attractions,
 };
 </script>
@@ -23,11 +23,11 @@ export default {
 <style scoped lang="scss">
 .attraction__item {
   background-color: var(--bg);
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 1vw;
   width: 90%;
   margin: 1vw;
-  box-shadow: -3px 3px 5px 0px $hover-font-color;
+  box-shadow: 0px 1px 3px 0px $modal-bg;
   &:hover {
     transform: scale(1.02);
   }
@@ -48,20 +48,28 @@ export default {
     background: none;
   }
   padding: 0.5vw;
-  height: 8vw;
+  padding-left: 1vw;
+  height: 15vw;
   @include mobile {
     padding: 5px;
     height: 80%;
   }
 }
+.attraction__description {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: justify;
+ 
+}
 .attraction__title {
-  font-size: 1.2vw;
+  font-size: 1.4vw;
   text-align: center;
   font-weight: 700;
   background-color: var(--ligherbg);
   border-radius: 5px;
   padding: 0.3vw;
   width: 100%;
+  color: $lighter-red;
   @include mobile {
     font-size: 18px;
     padding: 3px;
@@ -70,21 +78,23 @@ export default {
 .attraction__description-container {
   @include flexrow(flex-start);
   align-items: flex-start;
+  height: 15vw;
 }
 
 .attraction__image {
+  align-self: center;
   border-radius: 5px;
-  box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
-  width: 8vw;
-  height: 8vw;
+  box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+  
+  height: 10vw;
   @include mobile {
     width: 20vw;
     height: 20vw;
     box-shadow: none;
   }
-  .attraction__description {
-    font-size: 14px;
-    text-align: justify;
-  }
+}
+.attraction__address {
+  color: $red;
+  font-size: 12px;
 }
 </style>

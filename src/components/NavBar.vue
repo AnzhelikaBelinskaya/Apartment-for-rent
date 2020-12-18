@@ -49,19 +49,14 @@
 <script>
 import { titles } from "../data/titles.data";
 export default {
-  props: ["isFooter", "isHidden"],
+  props: ["isFooter", "isHidden", "isDark"],
   navTitles: titles.nav,
-  computed: {
-    isDark: function () {
-      return this.$store.state.dark;
-    },
-  },
   methods: {
     setLang: function (lang) {
       this.$store.commit("setLang", lang);
     },
     switchMode: function () {
-      this.$store.commit("switchMode");
+      this.$emit('switchMode');
     },
      showModal: function () {
       this.$router.push({path: this.$router.path, query:{name: 'showModal'}});

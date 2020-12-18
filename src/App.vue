@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" >
     <div class="main__background"></div>
-    <NavBar :isFooter="false" :isHidden="false" />
+    <NavBar :isFooter="false" :isHidden="false" :isDark="isDark" @switchMode='switchMode' />
     <router-view class="main__container"></router-view>
-    <Modal v-if='showModal'>
+    <Modal v-if="showModal">
       <Feedback />
     </Modal>
     <Footer />
@@ -22,39 +22,43 @@ export default {
     NavBar,
     Footer,
     Feedback,
-    Modal
+    Modal,
+  },
+  data() {
+    return {
+      isDark: false,
+    };
   },
   computed: {
-    dark: function () {
-      return this.$store.state.dark;
+    showModal() {
+      return this.$route.query.name == "showModal";
     },
-    showModal: function () {
-      return this.$route.query.name == 'showModal';
-    }
- 
   },
-  mounted: function () {
-    this.$store.state.dark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-  },
-  watch: {
-    dark() {
-      const bg = this.dark
+  methods: {
+    switchMode() {
+      this.isDark = !this.isDark;
+      this.switchTheme();
+    },
+    switchTheme() {
+      const bg = this.isDark
         ? "rgba(78, 62, 54, 0.5)"
-        : "rgba(255, 255, 255, 0.3)";
+        : "rgba(255, 255, 255, 0.5)";
 
-      const txt = this.dark ? "rgba(255, 255, 255, 0.6)" : "rgb(87, 56, 10)";
-      const titlescolor = this.dark
+      const txt = this.isDark ? "rgba(255, 255, 255, 0.6)" : "rgb(87, 56, 10)";
+      const titlescolor = this.isDark
         ? "rgba(255, 255, 255, 0.6)"
         : "rgb(87, 56, 10)";
-        const modal = this.dark ? "rgb(88, 78, 65)" : "rgb(255, 255, 255)";
-      document.documentElement.style.setProperty("--bg", bg);
-      document.documentElement.style.setProperty("--txt", txt);
-      document.documentElement.style.setProperty("--titles", titlescolor);
-      document.documentElement.style.setProperty("--modal", modal);
+      const modal = this.isDark ? "rgb(77, 72, 70)" : "rgb(255, 255, 255)";
+      document.body.style.setProperty("--bg", bg);
+      document.body.style.setProperty("--txt", txt);
+      document.body.style.setProperty("--titles", titlescolor);
+      document.body.style.setProperty("--modal", modal);
     },
-    
+  },
+
+  mounted: function () {
+    this.isDark = window.matchMedia("(prefers-color-scheme: isDark)").matches;
+    this.switchTheme();
   },
 };
 </script>
