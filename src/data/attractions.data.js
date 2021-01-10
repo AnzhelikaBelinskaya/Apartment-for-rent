@@ -4,36 +4,13 @@ export const attractions = {
         zoom: 9,
     },
 
-    icons: [
-        {
-            type: 'Nature',
-            layout: 'default#imageWithContent',
-            imageHref: '/img/icons/green-pin.png',
-            imageSize: [30, 30],
-            imageOffset: [-15, -30],
-        },
-        {
-            type: 'City',
-            layout: 'default#imageWithContent',
-            imageHref: '/img/icons/blue-pin.png',
-            imageSize: [30, 30],
-            imageOffset: [-15, -30],
-        },
-        {
-            type: 'Restaurants',
-            layout: 'default#imageWithContent',
-            imageHref: '/img/icons/red-pin.png',
-            imageSize: [30, 30],
-            imageOffset: [-15, -30],
-        },
-        {
-            type: 'Activities',
-            layout: 'default#imageWithContent',
-            imageHref: '/img/icons/yellow-pin.png',
-            imageSize: [30, 30],
-            imageOffset: [-15, -30],
-        },
-    ],
+    icon:
+    {
+        layout: 'default#imageWithContent',
+        imageHref: '/img/icons/green-pin.png',
+        imageSize: [40, 40],
+        imageOffset: [-20, -40],
+    },
 
     places: [
         {

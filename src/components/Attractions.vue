@@ -1,30 +1,11 @@
 <template>
   <div class="attractions">
-    <div class="attractions__header">{{ $options.attrTitles.header | translate }}</div>
-    <select
-      type="select"
-      class="attractions__select"
-      @change="switchType($event)"
-      v-model="selectedType"
-    >
-      <option
-        value="Nature"
-        class="attractions__option"
-      >{{ $options.attrTitles.select.nature | translate }}</option>
-      <option
-        value="City"
-        class="attractions__option"
-      >{{ $options.attrTitles.select.city | translate }}</option>
-      <option
-        value="Restaurants"
-        class="attractions__option"
-      >{{ $options.attrTitles.select.restaurants | translate }}</option>
-      <option
-        value="Activities"
-        class="attraction__option"
-      >{{ $options.attrTitles.select.activities | translate }}</option>
-      
-    </select>
+    <CustomSelect
+      :select="$options.select"
+      :defaultOption="this.selectedType"
+      @selectOption="switchType"
+    />
+
     <div class="attractions__container">
       <div class="attractions__item-container">
         <AttractionItem
@@ -38,7 +19,7 @@
       </div>
       <yandexMap
         class="attractions__map-container"
-        :markerIcon="markerIcon"
+        :markerIcon="$options.attractions.icon"
         :component="$options.attractions"
         :places="places"
       />
@@ -49,34 +30,35 @@
 <script>
 import yandexMap from "./Map";
 import AttractionItem from "./AttractionItem";
+import CustomSelect from "./CustomSelect";
 import { attractions } from "../data/attractions.data";
 import { titles } from "../data/titles.data";
 export default {
   attractions,
-  attrTitles: titles.attractions,
+  select: titles.attractions.select,
   components: {
     AttractionItem,
     yandexMap,
+    CustomSelect,
   },
   data: function () {
     return { selectedType: "Nature" };
   },
   computed: {
     places: function () {
-      return attractions.places.filter(
-        (item) => item.type === this.selectedType
-      );
-    },
-    markerIcon: function () {
-      return attractions.icons.filter(
-        (icon) => icon.type === this.selectedType
-      )[0];
+      if (this.selectedType === "All") {
+        return attractions.places;
+      } else {
+        return attractions.places.filter(
+          (item) => item.type === this.selectedType
+        );
+      }
     },
   },
 
   methods: {
-    switchType: function (event) {
-      this.selectedType = event.target.value;
+    switchType(id) {
+      this.selectedType = id;
     },
   },
 };
@@ -92,10 +74,9 @@ export default {
 .attractions__container {
   @include flexrow(space-between);
   height: 35vw;
-   @include mobile {
+  @include mobile {
     @include flexcol(flex-start);
     height: auto;
-    
   }
 }
 .attractions__item-container {

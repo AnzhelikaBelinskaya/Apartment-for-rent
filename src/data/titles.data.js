@@ -40,32 +40,43 @@ export const titles = {
         },
     },
     attractions: {
-        header: {
-            'ru-RU': 'Что посетить?',
-            'en-US': 'What to visit',
-        },
         select: {
-            nature: {
-                'ru-RU': 'Природа',
-                'en-US': 'Nature',
+            header: {
+                'ru-RU': 'Что посетить?',
+                'en-US': 'What to visit',
             },
-            city: {
-                'ru-RU': 'Город',
-                'en-US': 'City',
-            },
-            restaurants: {
-                'ru-RU': 'Рестораны',
-                'en-US': 'Restaurants',
-            },
-            activities: {
-                'ru-RU': 'Развлечения',
-                'en-US': 'Activities',
-            },
-        },
-        category: {
-            'ru-RU': 'Категория',
-            'en-US': 'Category',
-        },
+            options: {
+                all: {
+                    id: "All",
+                    'ru-RU': 'Все',
+                    'en-US': 'All',
+
+                },
+                nature: {
+                    id: "Nature",
+                    'ru-RU': 'Природа',
+                    'en-US': 'Nature',
+                },
+                city: {
+                    id: "City",
+                    'ru-RU': 'Город',
+                    'en-US': 'City',
+                },
+                restaurants: {
+                    id: "Restaurants",
+                    'ru-RU': 'Рестораны',
+                    'en-US': 'Restaurants',
+                },
+                activities: {
+                    id: "Activities",
+                    'ru-RU': 'Развлечения',
+                    'en-US': 'Activities',
+                },
+            }
+
+
+        }
+
     },
     transport: {
         time: {
