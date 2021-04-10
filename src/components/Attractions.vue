@@ -2,7 +2,7 @@
   <div class="attractions">
     <CustomSelect
       :select="$options.select"
-      :defaultOption="this.selectedType"
+      :defaultOption="selectedOption"
       @selectOption="switchType"
     />
 
@@ -42,10 +42,10 @@ export default {
     CustomSelect,
   },
   data: function () {
-    return { selectedType: "Nature" };
+    return { selectedType: "Nature"};
   },
   computed: {
-    places: function () {
+    places() {
       if (this.selectedType === "All") {
         return attractions.places;
       } else {
@@ -54,6 +54,12 @@ export default {
         );
       }
     },
+    select() {
+      return titles.attractions.select
+    },
+    selectedOption() {
+      return this.select.options[this.selectedType]
+    }
   },
 
   methods: {

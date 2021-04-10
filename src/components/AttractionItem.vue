@@ -69,7 +69,7 @@ export default {
   border-radius: 5px;
   padding: 0.3vw;
   width: 100%;
-  color: $lighter-red;
+  color: var(--titles);
   @include mobile {
     font-size: 18px;
     padding: 3px;
@@ -78,14 +78,14 @@ export default {
 .attraction__description-container {
   @include flexrow(flex-start);
   align-items: flex-start;
-  height: 15vw;
+  height: 12vw;
+  overflow: scroll;;
 }
 
 .attraction__image {
   align-self: center;
   border-radius: 5px;
   box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
-  
   height: 10vw;
   @include mobile {
     width: 20vw;

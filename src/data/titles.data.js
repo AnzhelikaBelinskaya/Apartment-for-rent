@@ -1,6 +1,6 @@
 export const titles = {
     nav: {
-        home: {
+        apart: {
             'ru-RU': 'Главная',
             'en-US': 'Home',
         },
@@ -15,14 +15,6 @@ export const titles = {
         feedback: {
             'ru-RU': 'Обратная связь',
             'en-US': 'Feedback',
-        },
-        lightTheme: {
-            'ru-RU': 'Светлая',
-            'en-US': 'Light',
-        },
-        darkTheme: {
-            'ru-RU': 'Темная',
-            'en-US': 'Dark',
         },
     },
     apart: {
@@ -46,28 +38,28 @@ export const titles = {
                 'en-US': 'What to visit',
             },
             options: {
-                all: {
+                All: {
                     id: "All",
                     'ru-RU': 'Все',
                     'en-US': 'All',
 
                 },
-                nature: {
+                Nature: {
                     id: "Nature",
                     'ru-RU': 'Природа',
                     'en-US': 'Nature',
                 },
-                city: {
+                City: {
                     id: "City",
                     'ru-RU': 'Город',
                     'en-US': 'City',
                 },
-                restaurants: {
+                Restaurants: {
                     id: "Restaurants",
                     'ru-RU': 'Рестораны',
                     'en-US': 'Restaurants',
                 },
-                activities: {
+                Activities: {
                     id: "Activities",
                     'ru-RU': 'Развлечения',
                     'en-US': 'Activities',
@@ -109,7 +101,7 @@ export const titles = {
             },
             textarea: {
                 'ru-RU': 'Задайте Ваш вопрос или оставьте отзыв',
-                'en-US': 'Ask your question or leave a review',
+                'en-US': 'Ask your question or send a review',
             },
 
         },

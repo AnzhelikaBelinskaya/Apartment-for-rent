@@ -1,12 +1,12 @@
 <template>
   <div id="app" >
     <div class="main__background"></div>
-    <NavBar :isFooter="false" :isHidden="false" :isDark="isDark" @switchMode='switchMode' />
+    <NavBar :isFooter="false" :isHidden="false" />
     <router-view class="main__container"></router-view>
     <Modal v-if="showModal">
       <Feedback />
     </Modal>
-    <Footer />
+    <Footer :isHidden="true"/>
   </div>
 </template>
 
@@ -24,42 +24,14 @@ export default {
     Feedback,
     Modal,
   },
-  data() {
-    return {
-      isDark: false,
-    };
-  },
+  
   computed: {
     showModal() {
       return this.$route.query.name == "showModal";
     },
   },
-  methods: {
-    switchMode() {
-      this.isDark = !this.isDark;
-      this.switchTheme();
-    },
-    switchTheme() {
-      const bg = this.isDark
-        ? "rgba(78, 62, 54, 0.5)"
-        : "rgba(255, 255, 255, 0.5)";
 
-      const txt = this.isDark ? "rgba(255, 255, 255, 0.6)" : "rgb(87, 56, 10)";
-      const titlescolor = this.isDark
-        ? "rgba(255, 255, 255, 0.6)"
-        : "rgb(87, 56, 10)";
-      const modal = this.isDark ? "rgb(77, 72, 70)" : "rgb(255, 255, 255)";
-      document.body.style.setProperty("--bg", bg);
-      document.body.style.setProperty("--txt", txt);
-      document.body.style.setProperty("--titles", titlescolor);
-      document.body.style.setProperty("--modal", modal);
-    },
-  },
-
-  mounted: function () {
-    this.isDark = window.matchMedia("(prefers-color-scheme: isDark)").matches;
-    this.switchTheme();
-  },
+ 
 };
 </script>
 
@@ -80,7 +52,6 @@ export default {
 
 .main__container {
   margin: 0 auto;
-  background-color: var(--bg);
   @include mobile {
     width: auto;
   }
@@ -89,10 +60,10 @@ export default {
 .main__background {
   background-image: url("/img/paralax.jpg");
   background-repeat: no-repeat;
-  background-size: 110%;
+  background-size: 150%;
   position: fixed;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   z-index: -5;
   @include mobile {
     height: 100vh;

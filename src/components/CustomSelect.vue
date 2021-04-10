@@ -3,9 +3,9 @@
     <div class="select__header">
       {{ select.header | translate }}
     </div>
-    <div class="select__options-container" @mouseenter="expandOptions" @mouseleave="closeOptions" >
-      <div class="select__option-selected" >
-        {{defaultOption}}
+    <div class="select__options-container"  >
+      <div class="select__option-selected" @click="toggleOptions">
+        {{defaultOption | translate}}
       </div>
       <div class="select__options-expanded" v-if="isExpanded"
       >
@@ -14,6 +14,7 @@
           v-for="option in select.options"
           :key="option.id"
           @click="selectOption(option.id)"
+          :class="{'select__options-list-selected': option.id===defaultOption.id}"
           
           
         >
@@ -33,37 +34,38 @@ export default {
     };
   },
   methods: {
-    expandOptions() {
-      this.isExpanded = true;
-    },
-    closeOptions() {
-        this.isExpanded = false;
+    toggleOptions() {
+      this.isExpanded = !this.isExpanded;
     },
     selectOption(id) {
-      this.closeOptions();
+      this.isExpanded = false;
       this.$emit("selectOption", id);
     },
   },
 };
 </script>
 <style scoped lang="scss">
+.select__wrapper {
+  padding: 2vw;
+}
 .select__header {
   padding: 10px;
 }
 .select__options-container {
   position: relative;
-  width: 20vw;
 }
 .select__option-selected {
   position: relative;
   text-align: center;
   background-color: var(--modal);
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
+  border: 1px solid rgba(194, 184, 184, 0.5);
+  width: 20vw;
   &::after {
     position: absolute;
-    right: 5px;
-    top: 10px;
+    right: 10px;
+    top: 16px;
     content: " ";
     border: 5px solid transparent;
     border-top: 5px solid black;
@@ -86,6 +88,9 @@ export default {
   &:hover {
     color: $red;
     cursor: default;
+  }
+  &-selected {
+    background-color: $lighter-primary-color;
   }
 }
 </style>

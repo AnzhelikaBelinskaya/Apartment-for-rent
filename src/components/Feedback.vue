@@ -9,8 +9,8 @@
         :key="index"
         :label="input | translate"
         :isWide="index === 'textarea'"
-        v-model="$v[index].$model"
-        :error="$v[index].$invalid && $v[index].$dirty"
+        v-model="$v.post[index].$model"
+        :error="$v.post[index].$invalid && $v.post[index].$dirty"
       />
       <div class="form__submit" @click="submit">
         {{ $options.titles.feedback.button | translate }}
@@ -33,10 +33,14 @@ export default {
   },
   data() {
     return {
-      name: "",
-      email: "",
-      phone: "",
-      textarea: "",
+      post: {
+        name: "",
+        email: "",
+        phone: "",
+        textarea: "",
+      },
+
+      url: "http://localhost:8080/",
     };
   },
   computed: {
@@ -45,23 +49,24 @@ export default {
     },
   },
   validations: {
-    name: { required },
-    email: { email },
-    phone: { numeric, phone },
-    textarea: {required},
+    post: {
+      name: { required },
+      email: { email },
+      phone: { numeric, phone },
+      textarea: { required },
+    },
   },
   methods: {
     submit() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        fetch("http://httpbin.org/post", {
+        fetch(this.url, {
           method: "post",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(this.data),
-        })
-          
+          body: JSON.stringify(this.post),
+        }).then((response) => console.log(JSON.stringify(response)));
       }
     },
   },

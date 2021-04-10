@@ -32,28 +32,27 @@
 </template>
 
 <script>
-import { transport } from '../data/transport.data'
-import { titles } from '../data/titles.data'
+import { transport } from "../data/transport.data";
+import { titles } from "../data/titles.data";
 export default {
   transport,
   titles,
-  data: function() {
+  data: function () {
     return {
       currentTab: transport[0],
-    }
+    };
   },
   methods: {
     switchTab(index) {
-      this.currentTab = transport[index]
+      this.currentTab = transport[index];
     },
   },
-}
+};
 </script>
 
 <style scoped lang="scss">
 .routes {
   padding: 2vw;
-  background-color: var(--bg);
   @include flexrow(space-around);
   @include mobile {
     @include flexcol(flex-start);
@@ -65,9 +64,7 @@ export default {
     padding: 5vw 0;
     @include mobile {
       @include flexrow(space-around);
-      
     }
-
   }
 
   &__button {

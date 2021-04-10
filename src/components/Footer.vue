@@ -25,7 +25,7 @@ export default {
 
 <style scoped lang="scss">
 .footer__container {
-  padding: 5vw 5vw;
+  padding: 0 5vw;
   @include flexrow(space-between);
   @include mobile {
     @include flexcol(flex-start);
